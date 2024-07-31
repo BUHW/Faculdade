@@ -47,19 +47,20 @@ li {
     list-style: none;
     text-transform: uppercase;
     font-size: 18px;
+    font-weight: bold;
 }
 
 .content-header {
     display: flex;
     margin: 0 auto;
     align-items: center;
-    padding: 2rem 0;
-    gap: 4rem;
-    width: 80%;
+    padding: 4rem 0;
+    gap: 8rem;
+    width: 60%;
     justify-content: center;
 }
 
-.content-header div:first-child {
+.content-header div .background-image {
     display: flex;
     align-items: center;
     background-color: white;
@@ -72,6 +73,21 @@ li {
 
 .content-header div:last-child {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.content-header div:last-child a {
+    border: none;
+    text-transform: uppercase;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    width: 30%;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 0;
+    border-radius: 4px;
 }
 
 .text-animation {
@@ -85,5 +101,43 @@ li {
 .text-animation span::before {
     content: "";
     color: var(--primary-color);
+    animation: palavras 30s infinite;
+}
+
+.text-animation span::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    border-left: 2px solid var(--primary-color);
+    right: -5px;
+    opacity: 1;
+    animation: cursor 2s infinite, digita 30s steps(20) infinite;
+    width: calc(100% + 5px);
+    background-color: var(--secondary-color);
+}
+
+@keyframes digita {
+    10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95% {
+        width: 0;
+    }
+
+    5%, 20%, 25%, 40%, 45%, 60%, 65%, 80%, 85% {
+        width: calc(100% + 5px);
+    }
+}
+
+@keyframes cursor {
+    0% {
+        border-left: 2px solid var(--secondary-color);
+    }
+}
+
+@keyframes palavras {
+    0%,50% {
+        content: "Olá, eu sou Victor Antonio Pereira";
+    }
+    51%,100% {
+        content: "Conheça o meu repositório";
+    }
 }
 
