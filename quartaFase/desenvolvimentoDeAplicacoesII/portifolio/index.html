@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,40 +9,127 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
+
 <body>
     <header>
-      <nav>
-        <ul class="list">
-            <a href="#">
-                <li>Home</li>
-            </a>
-            <a href="#">
-                <li>Sobre mim</li>
-            </a>
-            <a href="#">
-                <li>Resumo</li>
-            </a>
-            <a href="#">
-                <li>Habilidades</li>
-            </a>
-            <a href="#">
-                <li>Repositórios</li>
-            </a>
-          </ul>
-      </nav>
+        <nav>
+            <ul class="list">
+                <a href="#">
+                    <li>Home</li>
+                </a>
+                <a href="#card-sobre-mim">
+                    <li>Sobre mim</li>
+                </a>
+                <a href="#">
+                    <li>Habilidades</li>
+                </a>
+                <a href="#">
+                    <li>Repositórios</li>
+                </a>
+            </ul>
+        </nav>
 
-      <section class="content-header">
-        <div>
-            <div class="background-image">
-                <img src="img/FotoFormatura.png" alt="Foto de formatura">
+        <section class="content-header">
+            <div>
+                <div class="background-image">
+                    <img src="img/FotoFormatura.png" alt="Foto de formatura">
+                </div>
+            </div>
+            <div>
+                <h1 class="text-animation"><span></span></h1>
+                <p>Aluno de Ciência da Computação</p>
+                <a href="#">Ver repositório</a>
+            </div>
+        </section>
+    </header>
+    <main class="conatiner">
+        <div class="card-sobre-mim" id="card-sobre-mim">
+            <div>
+                <h1>Sobre mim</h1>
+                <p>
+                    Meu nome é Victor Antonio, sou de Criciúma, Santa Catarina, e atualmente estou
+                    na quarta fase do curso de Ciência da Computação na UNESC faculdade do extremo sul catarinense. No
+                    período da tarde, trabalho
+                    como estagiário de desenvolvimento na Simples Dental, onde atuo com Angular e Java.
+                    Pela manhã, trabalho como estagiário de suporte de infraestrutura e desenvolvedor,
+                    focando principalmente em React, Node.js e SQL Server. Sou apaixonado por tecnologia
+                    e desenvolvimento de software, e estou sempre em busca de novos desafios e oportunidades
+                    para aprimorar minhas habilidades e conhecimentos na área.
+                </p>
+            </div>
+            <div>
+                <img src="img/sobre.svg" alt="sobre">
             </div>
         </div>
-        <div>
-            <h1 class="text-animation"><span></span></h1>
-            <p>Aluno de Ciência da Computação</p>
-            <a href="#">Ver repositório</a>
+
+        <div class="card-resumo" id="card-resumo">
+            <div class="slider">
+                <h1>Habilidades</h1>
+                <div class="slider-content">
+                    <input type="radio" class="btn-radio" id="radio1">
+                    <input type="radio" class="btn-radio" id="radio2">
+                    <input type="radio" class="btn-radio" id="radio3">
+
+                    <div class="slider-box primeiro">
+                        <div>
+                            <img src="img/html.svg" alt="HTML">
+                            <h1>HTML</h1>
+                        </div>
+                        <div>
+                            <img src="img/css.svg" alt="CSS">
+                            <h1>CSS</h1>
+                        </div>
+                        <div>
+                            <img src="img/js.svg" alt="JS">
+                            <h1>JavaScript</h1>
+                        </div>
+                    </div>
+
+                    <div class="slider-box">
+                        <div>
+                            <img src="img/react.svg" alt="REACT">
+                            <h1>ReactJS</h1>
+                        </div>
+                        <div>
+                            <img src="img/angular.svg" alt="ANGULAR">
+                            <h1>AngularJS</h1>
+                        </div>
+                        <div>
+                            <img src="img/react.svg" alt="REACT NATIVE">
+                            <h1>React Native</h1>
+                        </div>
+                    </div>
+
+                    <div class="slider-box">
+                        <div>
+                            <img src="img/node.svg" alt="NODEJS">
+                            <h1>NodeJS</h1>
+                        </div>
+                        <div>
+                            <img src="img/mongo.svg" alt="MONGODB">
+                            <h1>MongoDB</h1>
+                        </div>
+                        <div>
+                            <img src="img/sql.svg" alt="SQL">
+                            <h1>SQL</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                </div>
+
+                <div class="nav-manual">
+                    <label for="radio1" class="manual-btn"></label>
+                    <label for="radio2" class="manual-btn"></label>
+                    <label for="radio3" class="manual-btn"></label>
+                </div>
+            </div>
         </div>
-      </section>
-    </header>
+    </main>
 </body>
+
 </html>

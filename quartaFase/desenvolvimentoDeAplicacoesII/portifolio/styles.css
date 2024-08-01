@@ -13,6 +13,8 @@
     --third-color: #343a40;
 }
 
+/* Header */
+
 header {
     display: flex;
     flex-direction: column;
@@ -58,6 +60,7 @@ li {
     gap: 8rem;
     width: 60%;
     justify-content: center;
+    height: 100vh;
 }
 
 .content-header div .background-image {
@@ -141,3 +144,86 @@ li {
     }
 }
 
+/* Sobre mim */
+
+.card-sobre-mim {
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    border-radius: 4px;
+}
+
+.card-sobre-mim div:first-child {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 40px 60px;
+    justify-content: center;
+    gap: 40px;
+
+    h1 {
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--primary-color);
+        text-transform: uppercase;
+    }
+
+    p {
+        font-size: 18px;
+        color: var(--third-color);
+        text-align: justify;
+    }
+}
+
+.card-sobre-mim div:last-child {
+    width: 30%;
+}
+
+.card-sobre-mim div:last-child img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    display: block; 
+    border-radius: 4px;
+}
+
+/* Habilidades - carrossel */
+
+.slider {
+    margin: 0 auto;
+    height: auto;
+    width: 80%;
+    padding: 20px;
+    overflow: hidden;   
+    margin-top: 2rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 4px;
+}
+
+.slider-content {
+    display: flex;
+    width: 400%;
+    height: auto;
+}
+
+.slider-content input {
+    display: none;
+}
+
+.slider-box {
+    width: 25%;
+    height: auto;
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    margin-right: 20px;
+}
+
+.slider-box div img {
+    width: auto;
+    height: 100px;
+}
