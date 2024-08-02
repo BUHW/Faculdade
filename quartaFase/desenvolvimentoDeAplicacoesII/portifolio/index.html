@@ -1,34 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portifólio</title>
-
-    <link rel="stylesheet" href="styles.css">
+    <title>Portfólio</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
     <header>
         <nav>
             <ul class="list">
-                <a href="#">
-                    <li>Home</li>
-                </a>
-                <a href="#card-sobre-mim">
-                    <li>Sobre mim</li>
-                </a>
-                <a href="#">
-                    <li>Habilidades</li>
-                </a>
-                <a href="#">
-                    <li>Repositórios</li>
-                </a>
+                <li><a href="#">Home</a></li>
+                <li><a href="#card-sobre-mim">Sobre mim</a></li>
+                <li><a href="#card-resumo">Habilidades</a></li>
+                <li><a href="#">Repositórios</a></li>
             </ul>
         </nav>
-
         <section class="content-header">
             <div>
                 <div class="background-image">
@@ -42,7 +30,7 @@
             </div>
         </section>
     </header>
-    <main class="conatiner">
+    <main class="container">
         <div class="card-sobre-mim" id="card-sobre-mim">
             <div>
                 <h1>Sobre mim</h1>
@@ -58,7 +46,7 @@
                 </p>
             </div>
             <div>
-                <img src="img/sobre.svg" alt="sobre">
+                <img src="img/sobre.svg" alt="Sobre">
             </div>
         </div>
 
@@ -66,9 +54,9 @@
             <div class="slider">
                 <h1>Habilidades</h1>
                 <div class="slider-content">
-                    <input type="radio" class="btn-radio" id="radio1">
-                    <input type="radio" class="btn-radio" id="radio2">
-                    <input type="radio" class="btn-radio" id="radio3">
+                    <input type="radio" name="btn-radio" id="radio1">
+                    <input type="radio" name="btn-radio" id="radio2">
+                    <input type="radio" name="btn-radio" id="radio3">
 
                     <div class="slider-box primeiro">
                         <div>
@@ -87,26 +75,26 @@
 
                     <div class="slider-box">
                         <div>
-                            <img src="img/react.svg" alt="REACT">
+                            <img src="img/react.svg" alt="React">
                             <h1>ReactJS</h1>
                         </div>
                         <div>
-                            <img src="img/angular.svg" alt="ANGULAR">
+                            <img src="img/angular.svg" alt="Angular">
                             <h1>AngularJS</h1>
                         </div>
                         <div>
-                            <img src="img/react.svg" alt="REACT NATIVE">
+                            <img src="img/react.svg" alt="React Native">
                             <h1>React Native</h1>
                         </div>
                     </div>
 
                     <div class="slider-box">
                         <div>
-                            <img src="img/node.svg" alt="NODEJS">
+                            <img src="img/node.svg" alt="Node.js">
                             <h1>NodeJS</h1>
                         </div>
                         <div>
-                            <img src="img/mongo.svg" alt="MONGODB">
+                            <img src="img/mongo.svg" alt="MongoDB">
                             <h1>MongoDB</h1>
                         </div>
                         <div>
@@ -122,7 +110,7 @@
                     <div class="auto-btn3"></div>
                 </div>
 
-                <div class="nav-manual">
+                <div class="nav-manual" id="manual-btn">
                     <label for="radio1" class="manual-btn"></label>
                     <label for="radio2" class="manual-btn"></label>
                     <label for="radio3" class="manual-btn"></label>
@@ -131,5 +119,4 @@
         </div>
     </main>
 </body>
-
 </html>

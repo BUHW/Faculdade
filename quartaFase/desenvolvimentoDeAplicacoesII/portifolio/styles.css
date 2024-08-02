@@ -13,25 +13,24 @@
     --third-color: #343a40;
 }
 
-/* Header */
-
 header {
     display: flex;
     flex-direction: column;
     background-color: var(--secondary-color);
+}
 
-    nav {
+nav {
+    width: 100%;
+}
 
-        ul {
-            display: flex;
-            max-width: 80%;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            padding: 10px 0;
-            gap: 40px;
-        }
-    }
+nav ul {
+    display: flex;
+    max-width: 80%;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 10px 0;
+    gap: 40px;
 }
 
 a {
@@ -63,15 +62,15 @@ li {
     height: 100vh;
 }
 
-.content-header div .background-image {
+.content-header .background-image {
     display: flex;
     align-items: center;
     background-color: white;
     border-radius: 50%;
+}
 
-    img {
-        border-radius: 50%;
-    }
+.content-header .background-image img {
+    border-radius: 50%;
 }
 
 .content-header div:last-child {
@@ -86,7 +85,6 @@ li {
     text-transform: uppercase;
     background-color: var(--primary-color);
     color: var(--secondary-color);
-    width: 30%;
     text-align: center;
     cursor: pointer;
     padding: 10px 0;
@@ -123,7 +121,6 @@ li {
     10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95% {
         width: 0;
     }
-
     5%, 20%, 25%, 40%, 45%, 60%, 65%, 80%, 85% {
         width: calc(100% + 5px);
     }
@@ -144,8 +141,6 @@ li {
     }
 }
 
-/* Sobre mim */
-
 .card-sobre-mim {
     display: flex;
     align-items: center;
@@ -163,19 +158,19 @@ li {
     padding: 40px 60px;
     justify-content: center;
     gap: 40px;
+}
 
-    h1 {
-        font-size: 24px;
-        font-weight: bold;
-        color: var(--primary-color);
-        text-transform: uppercase;
-    }
+.card-sobre-mim div:first-child h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
 
-    p {
-        font-size: 18px;
-        color: var(--third-color);
-        text-align: justify;
-    }
+.card-sobre-mim div:first-child p {
+    font-size: 18px;
+    color: var(--third-color);
+    text-align: justify;
 }
 
 .card-sobre-mim div:last-child {
@@ -186,27 +181,35 @@ li {
     width: 100%;
     height: 600px;
     object-fit: cover;
-    display: block; 
+    display: block;
     border-radius: 4px;
 }
-
-/* Habilidades - carrossel */
 
 .slider {
     margin: 0 auto;
     height: auto;
     width: 80%;
-    padding: 20px;
-    overflow: hidden;   
+    padding: 30px 0;
+    overflow: hidden;
     margin-top: 2rem;
+    margin-bottom: 2rem;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 4px;
+    position: relative;
+}
+
+.slider h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    margin: 20px 0;
 }
 
 .slider-content {
     display: flex;
-    width: 400%;
+    width: 300%;
     height: auto;
+    transition: margin-left 1s;
 }
 
 .slider-content input {
@@ -214,16 +217,63 @@ li {
 }
 
 .slider-box {
-    width: 25%;
+    width: 33.33%;
     height: auto;
     position: relative;
     text-align: center;
     display: flex;
     justify-content: space-evenly;
-    margin-right: 20px;
+    transition: 1s;
+}
+
+.slider-box div {
+    width: 33.33%;
+    margin: 1rem 0;
 }
 
 .slider-box div img {
     width: auto;
     height: 100px;
+}
+
+.nav-manual, .nav-auto {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.nav-manual .manual-btn, .nav-auto div {
+    border: 1px solid var(--primary-color);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.nav-manual .manual-btn:not(:last-child), .nav-auto div:not(:last-child) {
+    margin-right: 10px;
+}
+
+.nav-manual .manual-btn:hover {
+    background-color: var(--primary-color);
+}
+
+#radio1:checked ~ .primeiro {
+    margin-left: 0%;
+}
+
+#radio2:checked ~ .primeiro {
+    margin-left: -33.33%;
+}
+
+#radio3:checked ~ .primeiro {
+    margin-left: -66.66%;
+}
+
+#radio1:checked ~ .nav-auto .auto-btn1,
+#radio2:checked ~ .nav-auto .auto-btn2,
+#radio3:checked ~ .nav-auto .auto-btn3 {
+    background-color: var(--primary-color);
 }
