@@ -1,0 +1,15 @@
+{
+  "name": "aula004",
+  "version": "1.0.0",
+  "description": "Estudando node",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Victor Antonio",
+  "license": "ISC"
+}
