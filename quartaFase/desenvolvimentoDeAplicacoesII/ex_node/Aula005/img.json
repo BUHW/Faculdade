@@ -1,0 +1,12 @@
+{
+    "img": [
+        {
+            "nome": "yoda",
+            "arquivo": "yoda.png"
+        },
+        {
+            "nome": "luke",
+            "arquivo": "luke.png"
+        }
+    ]
+}
