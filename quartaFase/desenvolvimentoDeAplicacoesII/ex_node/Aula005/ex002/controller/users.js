@@ -1,12 +1,39 @@
 const { Users } = require('../models/users');
+const bcrypt = require('bcryptjs');
+
+exports.login = async (req, res, next) => {
+    try {
+        const { email, pass } = req.body;
+
+        const user = await Users.findOne({ email });
+
+        if (!user) {
+            return res.status(401).send({ message: 'Usuário não encontrado' });
+        }
+
+        const isMatch = bcrypt.compareSync(pass, user.pass);
+
+        if (!isMatch) {
+            return res.status(401).send({ message: 'Senha incorreta' });
+        }
+
+        res.redirect('/sucesso.html');
+
+    } catch (error) {
+        console.log('Erro ao processar login: ', error);
+        res.status(500).send('Erro ao processar login');
+    }
+};
 
 exports.create = async (req, res, next) => {
     try {
 
+        const encryptedPass = bcrypt.hashSync(req.body.pass, 10);
+
         const user = new Users({
             nome: req.body.nome,
             email: req.body.email,
-            pass: req.body.pass
+            pass: encryptedPass
         });
 
         const resp = await Users.create(user);
@@ -31,7 +58,7 @@ exports.getAll = async (req, res, next) => {
         if (!resp) {
             res.status(500).send({ message: 'Erro ao buscar usuários' });
         } else {
-            res.status(200).send({ message: 'Usuários encontrados com sucesso', users: { nome: resp.nome, email: resp.email } });
+            res.status(200).send({ message: 'Usuários encontrados com sucesso', users: resp });
         }
 
     } catch (error) {

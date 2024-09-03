@@ -1,15 +1,11 @@
 const mongoose = require("mongoose");
-
-const db = {
-    host: process.env.DBMON_HOST,
-    user: process.env.DBMON_USER,
-    pass: process.env.DBMON_PASS,
-};
+const config = require('../../config.json')
 
 async function main() {
 
     try {
-        await mongoose.connect(`${db.host}://${db.user}:${db.pass}@cluster0.7hjr3ko.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
+        mongoose.set('strictQuery', true);
+        await mongoose.connect(`${config.DBMON_HOST}://${config.DBMON_USER}:${config.DBMON_PASS}@cluster0.pj48vof.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
         console.log('Conexão com o MongoDB realizada com sucesso!');
 
     } catch (error) {

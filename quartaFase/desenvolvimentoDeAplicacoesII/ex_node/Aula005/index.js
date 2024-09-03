@@ -3,10 +3,12 @@ const app = express();
 const cors = require('cors');
 const cookieParser = require("cookie-parser");
 const requestImg = require('./ex001');
+const path = require('path');
+const config = require('./config.json')
 
 requestImg(app);
 
-const PORT = process.env.PORT
+app.use(express.static('FrontEnd'));
 
 app.use(express.json());
 app.use(cors());
@@ -29,8 +31,12 @@ const url = '/api';
 
 const users = require('./ex002/index');
 
-app.use(url + 'dawII/users', users);
+app.use(url + '/dawII', users);
 
-app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
+app.use((req, res) => {
+  res.status(404).sendFile(path.join(__dirname, 'FrontEnd', '404.html'));
+});
+
+app.listen(config.PORT, () => {
+    console.log(`Servidor rodando na porta ${config.PORT}`);
 })
