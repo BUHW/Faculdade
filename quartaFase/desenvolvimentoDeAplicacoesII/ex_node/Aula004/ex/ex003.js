@@ -6,41 +6,63 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-let setPalavras = new Set();
+let data = [];
 
-
-if (fs.existsSync('words.json')) {
-    const arquivo = fs.readFileSync('words.json', 'utf8');
-    console.log('Conteúdo do arquivo words.json:', arquivo);
+if (fs.existsSync('data.json')) {
+    const arquivo = fs.readFileSync('data.json', 'utf8');
+    try {
+        data = JSON.parse(arquivo);
+        if (!Array.isArray(data)) {
+            data = [];
+        }
+    } catch (e) {
+        console.error('Erro ao analisar o arquivo JSON:', e);
+        data = [];
+    }
+    console.log('Conteúdo do arquivo data.json:', data);
 }
 
 function digitaPalavra() {
-    rl.question('Digite uma palavra para escrever no arquivo, (pressione a tecla Enter para finalizaro processo): ', (input) => {
-        let word = input.trim();
-        if (word) {
-            setPalavras.add(word);
+    rl.question('Digite a categoria (aluno, disciplina, faculdade) ou pressione Enter para finalizar: ', (categoria) => {
+        if (!categoria || !['aluno', 'disciplina', 'faculdade'].includes(categoria)) {
+            saveDataToFile();
+            rl.close();
+            return;
         }
 
-        if (word === '') {
-            saveWordsToFile();
-            rl.close();
-        } else {
+        rl.question(`Digite a palavra para adicionar em ${categoria}: `, (input) => {
+            let palavra = input.trim();
+            if (palavra) {
+                let aula = data.find(item => item.aula[categoria] === palavra);
+                if (aula) {
+                    console.log(`A palavra "${palavra}" já existe na categoria "${categoria}".`);
+                } else {
+                    aula = data.find(item => item.aula[categoria] === "");
+                    if (!aula) {
+                        aula = { aula: { aluno: "", disciplina: "", faculdade: "" } };
+                        data.push(aula);
+                    }
+                    aula.aula[categoria] = palavra;
+                }
+            }
+
             digitaPalavra();
-        }
+        });
     });
 }
 
-function saveWordsToFile() {
-    const arrayPalavras = Array.from(setPalavras);
-    const jsonData = JSON.stringify(arrayPalavras, null, 2);
+function saveDataToFile() {
+    const jsonData = JSON.stringify(data, null, 2);
 
-    fs.writeFile('words.json', jsonData, (err) => {
+    fs.writeFile('data.json', jsonData, (err) => {
         if (err) {
             console.error('Erro ao salvar o arquivo:', err);
         } else {
-            console.log('Palavras salvas com sucesso no arquivo words.json');
+            console.log('Dados salvos com sucesso no arquivo data.json');
         }
     });
 }
+
+digitaPalavra();
 
 module.exports = { digitaPalavra };

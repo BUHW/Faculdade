@@ -17,6 +17,8 @@ exports.login = async (req, res, next) => {
             return res.status(401).send({ message: 'Senha incorreta' });
         }
 
+        res.redirect('/sucesso.html');
+
     } catch (error) {
         console.log('Erro ao processar login: ', error);
         res.status(500).send('Erro ao processar login');
@@ -39,7 +41,7 @@ exports.create = async (req, res, next) => {
         if (!resp) {
             res.status(500).send({ message: 'Erro ao criar usuário' });
         } else {
-            res.status(200).send({ message: 'Usuário criado com sucesso', user: { nome: resp.nome, email: resp.email } });
+            res.status(200).send({ message: 'Usuário criado com sucesso', user: resp });
         }
 
     } catch (error) {
@@ -74,7 +76,7 @@ exports.getById = async (req, res, next) => {
         if (!user) {
             res.status(500).send({ message: 'Erro ao buscar usuário por id' });
         } else {
-            res.status(200).send({ message: 'Usuário encontrado com sucesso', user: { nome: user.nome, email: user.email } });
+            res.status(200).send({ message: 'Usuário encontrado com sucesso', user: user });
         }
 
     } catch (error) {
@@ -98,7 +100,7 @@ exports.update = async (req, res, next) => {
         if (!resp) {
             res.status(500).send({ message: 'Erro ao atualizar usuário' });
         } else {
-            res.status(200).send({ message: 'Usuário atualizado com sucesso', user: { nome: resp.nome, email: resp.email } });
+            res.status(200).send({ message: 'Usuário atualizado com sucesso', user: resp });
         }
 
     } catch (error) {
@@ -117,7 +119,7 @@ exports.delete = async (req, res, next) => {
         if (!resp) {
             res.status(500).send({ message: 'Erro ao deletar usuário' });
         } else {
-            res.status(200).send({ message: 'Usuário deletado com sucesso', user: { nome: resp.nome, email: resp.email } });
+            res.status(200).send({ message: 'Usuário deletado com sucesso', user: resp });
         }
 
     } catch (error) {
