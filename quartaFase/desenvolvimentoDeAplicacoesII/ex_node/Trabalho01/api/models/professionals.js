@@ -1,7 +1,4 @@
 const mongoose = require("mongoose");
-const conn = require('../utils/db');
-
-conn();
 
 const { Schema } = mongoose;
 

@@ -1,9 +1,6 @@
 const mongoose = require("mongoose");
-const conn = require("../utils/db");
 const { Students } = require("./students")
 const { Professionals } = require("./professionals")
-
-conn();
 
 const { Schema } = mongoose;
 

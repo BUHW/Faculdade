@@ -17,8 +17,6 @@ exports.login = async (req, res, next) => {
             return res.status(401).send({ message: 'Senha incorreta' });
         }
 
-        res.redirect('/sucesso.html');
-
     } catch (error) {
         console.log('Erro ao processar login: ', error);
         res.status(500).send('Erro ao processar login');
@@ -28,12 +26,15 @@ exports.login = async (req, res, next) => {
 exports.create = async (req, res, next) => {
     try {
 
-        const encryptedPass = bcrypt.hashSync(req.body.pass, 10);
+        const encryptedPass = bcrypt.hashSync(req.body.pwd, 10);
 
         const user = new Users({
-            nome: req.body.nome,
+            name: req.body.name,
+            user: req.body.user,
             email: req.body.email,
-            pass: encryptedPass
+            pwd: encryptedPass,
+            level: req.body.level,
+            status: req.body.status
         });
 
         const resp = await Users.create(user);
@@ -90,9 +91,12 @@ exports.update = async (req, res, next) => {
         
         const id = req.params.id;
         const user = {
-            nome: req.body.nome,
+            name: req.body.name,
+            user: req.body.user,
             email: req.body.email,
-            pass: req.body.pass
+            pwd: req.body.pwd,
+            level: req.body.level,
+            status: req.body.status
         }
 
         const resp = await Users.findByIdAndUpdate(id, user);
