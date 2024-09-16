@@ -5,18 +5,24 @@ exports.login = async (req, res, next) => {
     try {
         const { email, pass } = req.body;
 
+        if (!email || !pass) {
+            return res.status(400).send({ message: 'Email e senha são obrigatórios' });
+        }
+
         const user = await Users.findOne({ email });
 
         if (!user) {
             return res.status(401).send({ message: 'Usuário não encontrado' });
         }
 
-        const isMatch = bcrypt.compareSync(pass, user.pass);
+        const isMatch = bcrypt.compareSync(pass, user.pwd);
 
         if (!isMatch) {
             return res.status(401).send({ message: 'Senha incorreta' });
         }
 
+        res.status(200).send({ message: 'Usuário logado com sucesso' });
+        
     } catch (error) {
         console.log('Erro ao processar login: ', error);
         res.status(500).send('Erro ao processar login');

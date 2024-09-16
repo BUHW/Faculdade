@@ -8,7 +8,7 @@ const studentsSchema = new Schema({
         required: true
     },
     age: {
-        type: String,
+        type: Number,
     },
     parents: {
         type: String,
