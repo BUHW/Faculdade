@@ -1,0 +1,16 @@
+[
+  {
+    "aula": {
+      "aluno": "victor",
+      "disciplina": "Desenvolvimento",
+      "faculdade": "unesc"
+    }
+  },
+  {
+    "aula": {
+      "aluno": "bianca",
+      "disciplina": "engenharia",
+      "faculdade": "esucri"
+    }
+  }
+]

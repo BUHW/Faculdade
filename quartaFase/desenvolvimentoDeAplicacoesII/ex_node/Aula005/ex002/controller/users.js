@@ -17,8 +17,6 @@ exports.login = async (req, res, next) => {
             return res.status(401).send({ message: 'Senha incorreta' });
         }
 
-        res.redirect('/sucesso.html');
-
     } catch (error) {
         console.log('Erro ao processar login: ', error);
         res.status(500).send('Erro ao processar login');
