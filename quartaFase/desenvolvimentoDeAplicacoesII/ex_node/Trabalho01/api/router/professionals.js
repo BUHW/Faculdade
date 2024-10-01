@@ -11,7 +11,7 @@ const professionalsController = require('../controller/professionals');
 
 /**
  * @swagger
- * /professionals:
+ * /api/daw/requests/professionals:
  *   get:
  *     tags:
  *       - Profissionals
@@ -27,7 +27,7 @@ router.get('/', professionalsController.getAll);
 
 /**
  * @swagger
- * /professionals/{id}:
+ * /api/daw/requests/professionals/{id}:
  *   get:
  *     tags:
  *       - Profissionals
@@ -50,7 +50,7 @@ router.get('/:id', professionalsController.getById);
 
 /**
  * @swagger
- * /professionals:
+ * /api/daw/requests/professionals:
  *   post:
  *     tags:
  *       - Profissionals
@@ -89,7 +89,7 @@ router.post('/', professionalsController.create);
 
 /**
  * @swagger
- * /professionals/{id}:
+ * /api/daw/requests/professionals/{id}:
  *   put:
  *     tags:
  *       - Profissionals
@@ -129,7 +129,7 @@ router.put('/:id', professionalsController.update);
 
 /**
  * @swagger
- * /professionals/{id}:
+ * /api/daw/requests/professionals/{id}:
  *   delete:
  *     tags:
  *       - Profissionals

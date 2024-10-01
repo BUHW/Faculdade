@@ -12,7 +12,7 @@ const teacherController = require('../controller/teacher');
 
 /**
  * @swagger
- * /teachers:
+ * /api/daw/requests/teachers:
  *   get:
  *     tags:
  *       - Teacher
@@ -28,7 +28,7 @@ router.get('/', teacherController.getAll);
 
 /**
  * @swagger
- * /teachers/{id}:
+ * /api/daw/requests/teachers/{id}:
  *   get:
  *     tags:
  *       - Teacher
@@ -51,7 +51,7 @@ router.get('/:id', teacherController.getById);
 
 /**
  * @swagger
- * /teachers:
+ * /api/daw/requests/teachers:
  *   post:
  *     tags:
  *       - Teacher
@@ -92,7 +92,7 @@ router.post('/', teacherController.create);
 
 /**
  * @swagger
- * /teachers/{id}:
+ * /api/daw/requests/teachers/{id}:
  *   put:
  *     tags:
  *       - Teacher
@@ -134,7 +134,7 @@ router.put('/:id', teacherController.update);
 
 /**
  * @swagger
- * /teachers/{id}:
+ * /api/daw/requests/teachers/{id}:
  *   delete:
  *     tags:
  *       - Teacher

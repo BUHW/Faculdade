@@ -11,7 +11,7 @@ const usersController = require('../controller/users');
 
 /**
  * @swagger
- * /users:
+ * /api/daw/requests/users:
  *   get:
  *     tags:
  *       - Users
@@ -27,7 +27,7 @@ router.get('/', usersController.getAll);
 
 /**
  * @swagger
- * /users/{id}:
+ * /api/daw/requests/users/{id}:
  *   get:
  *     tags:
  *       - Users
@@ -50,7 +50,7 @@ router.get('/:id', usersController.getById);
 
 /**
  * @swagger
- * /users:
+ * /api/daw/requests/users:
  *   post:
  *     tags:
  *       - Users
@@ -91,7 +91,7 @@ router.post('/', usersController.create);
 
 /**
  * @swagger
- * /users/{id}:
+ * /api/daw/requests/users/{id}:
  *   put:
  *     tags:
  *       - Users
@@ -133,7 +133,7 @@ router.put('/:id', usersController.update);
 
 /**
  * @swagger
- * /users/{id}:
+ * /api/daw/requests/users/{id}:
  *   delete:
  *     tags:
  *       - Users
@@ -156,7 +156,7 @@ router.delete('/:id', usersController.delete);
 
 /**
  * @swagger
- * /requests/login:
+ * /api/daw/requests/requests/login:
  *   post:
  *     tags:
  *       - Users

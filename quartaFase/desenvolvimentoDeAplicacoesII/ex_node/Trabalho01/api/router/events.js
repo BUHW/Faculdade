@@ -11,7 +11,7 @@ const eventsController = require('../controller/events');
 
 /**
  * @swagger
- * /events:
+ * /api/daw/requests/events:
  *   get:
  *     tags:
  *       - Events
@@ -47,7 +47,7 @@ router.get('/', eventsController.getAll);
 
 /**
  * @swagger
- * /events/{id}:
+ * /api/daw/requests/events/{id}:
  *   get:
  *     tags:
  *       - Events
@@ -88,7 +88,7 @@ router.get('/:id', eventsController.getById);
 
 /**
  * @swagger
- * /events:
+ * /api/daw/requests/events:
  *   post:
  *     tags:
  *       - Events
@@ -146,7 +146,7 @@ router.post('/', eventsController.create);
 
 /**
  * @swagger
- * /events/{id}:
+ * /api/daw/requests/events/{id}:
  *   put:
  *     tags:
  *       - Events
@@ -205,7 +205,7 @@ router.put('/:id', eventsController.update);
 
 /**
  * @swagger
- * /events/{id}:
+ * /api/daw/requests/events/{id}:
  *   delete:
  *     tags:
  *       - Events

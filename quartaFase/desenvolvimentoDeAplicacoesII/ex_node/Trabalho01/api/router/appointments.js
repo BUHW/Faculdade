@@ -11,7 +11,7 @@ const appointmentController = require('../controller/appointments');
 
 /**
  * @swagger
- * /appointments:
+ * /api/daw/requests/appointments:
  *   get:
  *     tags:
  *       - Appointments
@@ -47,7 +47,7 @@ router.get('/', appointmentController.getAll);
 
 /**
  * @swagger
- * /appointments/{id}:
+ * /api/daw/requests/appointments/{id}:
  *   get:
  *     tags:
  *       - Appointments
@@ -88,7 +88,7 @@ router.get('/:id', appointmentController.getById);
 
 /**
  * @swagger
- * /appointments:
+ * /api/daw/requests/appointments:
  *   post:
  *     tags:
  *       - Appointments
@@ -145,7 +145,7 @@ router.post('/', appointmentController.create);
 
 /**
  * @swagger
- * /appointments/{id}:
+ * /api/daw/requests/appointments/{id}:
  *   put:
  *     tags:
  *       - Appointments
@@ -204,7 +204,7 @@ router.put('/:id', appointmentController.update);
 
 /**
  * @swagger
- * /appointments/{id}:
+ * /api/daw/requests/appointments/{id}:
  *   delete:
  *     tags:
  *       - Appointments

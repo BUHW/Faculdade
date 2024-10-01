@@ -11,7 +11,7 @@ const studentsController = require('../controller/students');
 
 /**
  * @swagger
- * /students:
+ * /api/daw/requests/students:
  *   get:
  *     tags:
  *       - Students
@@ -27,7 +27,7 @@ router.get('/', studentsController.getAll);
 
 /**
  * @swagger
- * /students/{id}:
+ * /api/daw/requests/students/{id}:
  *   get:
  *     tags:
  *       - Students
@@ -50,7 +50,7 @@ router.get('/:id', studentsController.getById);
 
 /**
  * @swagger
- * /students:
+ * /api/daw/requests/students:
  *   post:
  *     tags:
  *       - Students
@@ -92,7 +92,7 @@ router.post('/', studentsController.create);
 
 /**
  * @swagger
- * /students/{id}:
+ * /api/daw/requests/students/{id}:
  *   put:
  *     tags:
  *       - Students
@@ -134,7 +134,7 @@ router.put('/:id', studentsController.update);
 
 /**
  * @swagger
- * /students/{id}:
+ * /api/daw/requests/students/{id}:
  *   delete:
  *     tags:
  *       - Students
