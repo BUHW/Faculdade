@@ -1,0 +1,12 @@
+{
+    "caminho_destino": "/home/sd-victor-antonio/Backup/",
+    "quantidade_manter": 5,
+    "caminho_copia_adicional": "/home/sd-victor-antonio/BackupAdicional",
+    "senha": 123456,
+    "quantidade_manter_apagar": 3,
+    "opcoes": {
+        "vacum": "S",
+        "full": "S",
+        "reindex": "S"
+    }
+}

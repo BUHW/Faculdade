@@ -156,7 +156,7 @@ router.delete('/:id', usersController.delete);
 
 /**
  * @swagger
- * /api/daw/requests/requests/login:
+ * /api/daw/requests/users/login:
  *   post:
  *     tags:
  *       - Users

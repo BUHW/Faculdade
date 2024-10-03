@@ -5,6 +5,8 @@ const cookieParser = require('cookie-parser');
 const { conn } = require('./db/conections');
 require('dotenv').config();
 
+const {processoIniciar} = require('./api/index')
+
 conn();
 
 app.use(cors());
@@ -22,6 +24,8 @@ app.use((req, res, next) => {
     );
     next();
 });
+
+processoIniciar();
 
 app.listen( process.env.PORT_SERVER || 8081, () => {
     console.log(`Servidor rodando com sucesso na porta ${ process.env.PORT_SERVER }`)
