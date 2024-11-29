@@ -11,7 +11,7 @@ exports.criarAlunos = async (req, res, next) => {
             return res.status(400).json({ Mensagem: 'Já existe um aluno com essa matrícula.' });
         }
 
-        const aluno = await db.alunos.create({ nome, matricula, diagnostico });
+        const aluno = await Alunos.create({ nome, matricula, diagnostico });
 
         return res.status(200).json({ conteudo: aluno });
     } catch (e) {
