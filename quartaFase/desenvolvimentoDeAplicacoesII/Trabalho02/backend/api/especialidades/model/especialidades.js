@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize');
+const sequelize = require('../../utils/database/database_postgre');
 const camposComuns = require('../../utils/models/camposComuns');
 
-module.exports = (sequelize) => {
-    const atributos = {
+const Especialidades = sequelize.define('Especialidades', {
         id: {
             field: 'i_especialidade',
             type: DataTypes.INTEGER,
@@ -15,12 +15,9 @@ module.exports = (sequelize) => {
             allowNull: false,
         },
         ...camposComuns,
-    };
-
-    const opcoes = {
+    }, {
         tableName: 'especialidades',
         timestamps: true,
-    };
+    });
 
-    return sequelize.define('Especialidades', atributos, opcoes);
-};
+    module.exports = Especialidades;
