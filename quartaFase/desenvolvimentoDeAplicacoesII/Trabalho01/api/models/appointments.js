@@ -18,14 +18,10 @@ const appointmentsSchema = new Schema(
       required: true,
     },
     student: {
-      type: Schema.Types.ObjectId,
-      ref: Students,
-      required: true,
+      type: String,
     },
     professional: {
-      type: Schema.Types.ObjectId,
-      ref: Professionals,
-      required: true,
+      type: String,
     },
   },
   { timestamps: true }

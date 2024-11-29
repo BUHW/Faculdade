@@ -29,17 +29,13 @@ const eventsController = require('../controller/events');
  *                 properties:
  *                   id:
  *                     type: string
- *                   name:
+ *                   description:
+ *                     type: string
+ *                   comments:
  *                     type: string
  *                   date:
  *                     type: string
  *                     format: date
- *                   location:
- *                     type: string
- *                   description:
- *                     type: string
- *                   status:
- *                     type: boolean
  *       500:
  *         description: Erro ao buscar eventos
  */
@@ -70,17 +66,13 @@ router.get('/', eventsController.getAll);
  *               properties:
  *                 id:
  *                   type: string
- *                 name:
+ *                 description:
+ *                   type: string
+ *                 comments:
  *                   type: string
  *                 date:
  *                   type: string
  *                   format: date
- *                 location:
- *                   type: string
- *                 description:
- *                   type: string
- *                 status:
- *                   type: boolean
  *       500:
  *         description: Erro ao buscar evento por ID
  */
@@ -101,23 +93,17 @@ router.get('/:id', eventsController.getById);
  *           schema:
  *             type: object
  *             required:
- *               - name
- *               - date
- *               - location
  *               - description
- *               - status
+ *               - comments
+ *               - date
  *             properties:
- *               name:
+ *               description:
+ *                 type: string
+ *               comments:
  *                 type: string
  *               date:
  *                 type: string
  *                 format: date
- *               location:
- *                 type: string
- *               description:
- *                 type: string
- *               status:
- *                 type: boolean
  *     responses:
  *       200:
  *         description: Evento criado com sucesso
@@ -128,17 +114,13 @@ router.get('/:id', eventsController.getById);
  *               properties:
  *                 id:
  *                   type: string
- *                 name:
+ *                 description:
+ *                   type: string
+ *                 comments:
  *                   type: string
  *                 date:
  *                   type: string
  *                   format: date
- *                 location:
- *                   type: string
- *                 description:
- *                   type: string
- *                 status:
- *                   type: boolean
  *       500:
  *         description: Erro ao criar evento
  */
@@ -166,17 +148,13 @@ router.post('/', eventsController.create);
  *           schema:
  *             type: object
  *             properties:
- *               name:
+ *               description:
+ *                 type: string
+ *               comments:
  *                 type: string
  *               date:
  *                 type: string
  *                 format: date
- *               location:
- *                 type: string
- *               description:
- *                 type: string
- *               status:
- *                 type: boolean
  *     responses:
  *       200:
  *         description: Evento atualizado com sucesso
@@ -187,17 +165,13 @@ router.post('/', eventsController.create);
  *               properties:
  *                 id:
  *                   type: string
- *                 name:
+ *                 description:
+ *                   type: string
+ *                 comments:
  *                   type: string
  *                 date:
  *                   type: string
  *                   format: date
- *                 location:
- *                   type: string
- *                 description:
- *                   type: string
- *                 status:
- *                   type: boolean
  *       500:
  *         description: Erro ao atualizar evento
  */
