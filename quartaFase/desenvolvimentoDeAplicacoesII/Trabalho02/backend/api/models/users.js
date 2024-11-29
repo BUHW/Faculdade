@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const conn = require('../utils/db');
+const { DataTypes } = require('sequelize');
+const sequelize = require('./database_postgre');
 
 conn();
 
@@ -29,10 +29,9 @@ const usersSchema = new Schema({
         type: Boolean,
         required: true
     },
-}, { timestamps: true });
+}, {
+    tableName: 'usuarios',
+    timestamps: true,
+});
 
-const Users = mongoose.model('Users', usersSchema);
-
-module.exports = {
-    Users
-}
+module.exports = {Users}

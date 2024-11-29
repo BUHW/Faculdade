@@ -1,6 +1,5 @@
-const mongoose = require("mongoose");
-
-const { Schema } = mongoose;
+const { DataTypes } = require('sequelize');
+const sequelize = require('./database_postgre');
 
 const studentsSchema = new Schema({
     name: {
