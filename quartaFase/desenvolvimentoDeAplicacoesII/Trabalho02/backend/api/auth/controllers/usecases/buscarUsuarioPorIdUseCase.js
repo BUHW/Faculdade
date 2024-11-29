@@ -1,9 +1,8 @@
-const db = require('../../../utils/database/database_postgres')
-
+const Usuarios = require('../model/usuarios');
 exports.buscarUsuarioPorId = async (req, res, next) => {
 
     try {
-        const usuario = await db.usuarios.findOne({ where: { id: req.params.id } });
+        const usuario = await Usuarios.findOne({ where: { id: req.params.id } });
         
         if (!usuario) {
             return res.status(400).json({ message: 'Usuário não encontrado' });
