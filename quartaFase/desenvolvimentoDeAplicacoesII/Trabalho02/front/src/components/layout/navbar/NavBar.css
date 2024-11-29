@@ -1,0 +1,31 @@
+header {
+    background-color: var(--tertiary) !important;
+}
+
+header .MuiButtonBase-root svg {
+    color: var(--primary);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: auto;
+    height: 50px;
+}
+
+.MuiDrawer-root.MuiDrawer-docked.css-1f2xuhi-MuiDrawer-docked {
+    width: 0;
+}
+
+.container-toolbar div{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.confirm-password-container {
+    padding: 0 20px;
+}

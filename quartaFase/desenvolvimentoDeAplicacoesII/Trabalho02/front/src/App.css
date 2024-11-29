@@ -1,0 +1,13 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;  
+  font-family: "Titillium Web", sans-serif;
+}
+
+:root {
+  --primary-color: #f9dc04;
+  --secondary-color: #59ac55;
+  --tertiary-color: #FFFFFF;
+  --quaternary-color: #000000;
+}
