@@ -1,34 +1,28 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes, Model } = require('sequelize');
 const sequelize = require('./database_postgre');
+const camposComuns = require('../utils/models/camposComuns')
 
-conn();
-
-const { Schema } = mongoose;
-
-const usersSchema = new Schema({
-    name: {
-        type: String,
-        required: true
+const Usuario = sequelize.define('Usuario', {
+    id: {
+        field: 'i_usuario',
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
     },
     email: {
-        type: String,
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
     },
-    user: {
-        type: String,
-        required: true
+    nome: {
+        type: DataTypes.STRING,
+        allowNull: false,
     },
-    pwd: {
-        type: String,
-        required: true
+    senha: {
+        type: DataTypes.STRING,
+        allowNull: false,
     },
-    level: {
-        type: String,
-        required: true
-    },
-    status: {
-        type: Boolean,
-        required: true
-    },
+    ...camposComuns
 }, {
     tableName: 'usuarios',
     timestamps: true,
