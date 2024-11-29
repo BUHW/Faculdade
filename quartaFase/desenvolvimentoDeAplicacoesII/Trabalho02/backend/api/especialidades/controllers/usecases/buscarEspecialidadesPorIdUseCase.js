@@ -1,9 +1,9 @@
-const db = require('../../../utils/database/database_postgres')
+const Especialidades = require('../model/especialidades');
 
 exports.buscarEspecialidadesPorId = async (req, res, next) => {
 
     try {
-        const especialidade = await db.especialidades.findOne({ where: { id: req.params.id } });
+        const especialidade = await Especialidades.findOne({ where: { id: req.params.id } });
         
         if (!especialidade) {
             return res.status(400).json({ message: 'Especialidade não encontrada' });

@@ -1,9 +1,9 @@
-const db = require('../../../utils/database/database_postgres');
+const Especialidades = require('../model/especialidades');
 const { Op } = require('sequelize');
 
 exports.cancelarEspecialidades = async (req, res, next) => {
     try {
-        const especialidade = await db.especialidades.update(
+        const especialidade = await Especialidades.update(
             { cancelado: true },
             { where: { id: req.params.id } }
         );

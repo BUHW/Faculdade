@@ -1,9 +1,9 @@
-const db = require('../../../utils/database/database_postgres')
+const Especialidades = require('../model/especialidades');
 
 exports.buscarEspecialidades = async (req, res, next) => {
 
     try {
-        const especialidades = await db.especialidades.findAll({
+        const especialidades = await Especialidades.findAll({
             where: {
                 cancelado: false
             }

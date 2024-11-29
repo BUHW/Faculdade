@@ -1,10 +1,10 @@
-const db = require('../../../utils/database/database_postgres')
+const Especialidades = require('../model/especialidades');
 
 exports.criarEspecialidades = async (req, res, next) => {
     const { nomeEspecialidade } = req.body;
 
     try {
-        const especialidadeExistente = await db.especialidades.findOne({
+        const especialidadeExistente = await Especialidades.findOne({
             where: { nomeEspecialidade }
         });
 
@@ -12,7 +12,7 @@ exports.criarEspecialidades = async (req, res, next) => {
             return res.status(400).json({ Mensagem: 'Já existe uma especialidade com esse nome.' });
         }
 
-        const especialidade = await db.especialidades.create({ nomeEspecialidade });
+        const especialidade = await Especialidades.create({ nomeEspecialidade });
 
         return res.status(200).json({ conteudo: especialidade });
     } catch (e) {
