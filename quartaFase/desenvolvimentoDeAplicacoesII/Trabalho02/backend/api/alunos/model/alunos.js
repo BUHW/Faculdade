@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../../utils/database/database_postgre');
 const camposComuns = require('../../utils/models/camposComuns');
 
-const Alunos = sequelize.define('Agendamentos', {
+const Alunos = sequelize.define('Alunos', {
         id: {
             field: 'i_aluno',
             type: DataTypes.INTEGER,
