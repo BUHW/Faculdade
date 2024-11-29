@@ -1,9 +1,9 @@
-const db = require('../../../utils/database/database_postgres')
+const Responsaveis = require('../model/responsaveis');
 
 exports.buscarResponsaveisPorId = async (req, res, next) => {
 
     try {
-        const responsavel = await db.responsaveis.findOne({ where: { id: req.params.id } });
+        const responsavel = await Responsaveis.findOne({ where: { id: req.params.id } });
         
         if (!responsavel) {
             return res.status(400).json({ message: 'Responsável não encontrado' });

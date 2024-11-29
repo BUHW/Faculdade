@@ -1,9 +1,9 @@
-const db = require('../../../utils/database/database_postgres')
+const Responsaveis = require('../model/responsaveis');
 
 exports.buscarResponsaveis = async (req, res, next) => {
 
     try {
-        const responsaveis = await db.responsaveis.findAll({
+        const responsaveis = await Responsaveis.findAll({
             where: {
                 cancelado: false
             }

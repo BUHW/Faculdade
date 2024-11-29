@@ -1,8 +1,8 @@
-const db = require('../../../utils/database/database_postgres');
+const Responsaveis = require('../model/responsaveis');
 
 exports.editarResponsaveis = async (req, res, next) => {
     try {
-        const responsavelAtualizado = await db.responsaveis.update(req.body, { where: { id: req.params.id } });
+        const responsavelAtualizado = await Responsaveis.update(req.body, { where: { id: req.params.id } });
         
         if (responsavelAtualizado[0] > 0) {
             res.status(200).json({ Mensagem: 'Responsável atualizado' });
