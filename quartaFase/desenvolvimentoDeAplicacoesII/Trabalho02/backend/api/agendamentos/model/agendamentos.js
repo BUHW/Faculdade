@@ -1,9 +1,7 @@
-const { DataTypes, Model } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const camposComuns = require('../../utils/models/camposComuns');
 
-module.exports = model
-
-function model(sequelize){
+module.exports = (sequelize) => {
     const atributos = {
         id: {
             field: 'i_agendamento',
@@ -38,12 +36,12 @@ function model(sequelize){
         },
         horaInicio: {
             field: 'hora_inicio',
-            type: DataTypes.TIMESTAMP,
+            type: DataTypes.TIME,
             allowNull: false,
         },
         horaFim: {
             field: 'hora_fim',
-            type: DataTypes.TIMESTAMP,
+            type: DataTypes.TIME,
             allowNull: false,
         },
         tipoAtendimento: {
@@ -58,15 +56,15 @@ function model(sequelize){
         },
         observacao: {
             type: DataTypes.TEXT,
-            allowNull: false,
+            allowNull: true,
         },
-        ...camposComuns
-    }
+        ...camposComuns,
+    };
 
     const opcoes = {
         tableName: 'agendamentos',
-        timestamps: false,
+        timestamps: true,
     };
 
     return sequelize.define('Agendamentos', atributos, opcoes);
-}
+};

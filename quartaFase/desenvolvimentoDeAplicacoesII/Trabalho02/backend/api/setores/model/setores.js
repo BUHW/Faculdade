@@ -1,9 +1,7 @@
-const { DataTypes, Model } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const camposComuns = require('../../utils/models/camposComuns');
 
-module.exports = model
-
-function model(sequelize){
+module.exports = (sequelize) => {
     const atributos = {
         id: {
             field: 'i_setor',
@@ -19,13 +17,13 @@ function model(sequelize){
             type: DataTypes.STRING(255),
             allowNull: false,
         },
-        ...camposComuns
-    }
+        ...camposComuns,
+    };
 
     const opcoes = {
         tableName: 'setores',
-        timestamps: false,
+        timestamps: true,
     };
 
     return sequelize.define('Setores', atributos, opcoes);
-}
+};

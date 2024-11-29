@@ -1,9 +1,7 @@
-const { DataTypes, Model } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const camposComuns = require('../../utils/models/camposComuns');
 
-module.exports = model
-
-function model(sequelize){
+module.exports = (sequelize) => {
     const atributos = {
         id: {
             field: 'i_aluno',
@@ -19,7 +17,8 @@ function model(sequelize){
             type: DataTypes.STRING(50),
             allowNull: false,
         },
-        data_nascimento: {
+        dataNascimento: {
+            field: 'data_nascimento',
             type: DataTypes.DATE,
             allowNull: false,
         },
@@ -31,7 +30,7 @@ function model(sequelize){
             type: DataTypes.STRING(2),
             allowNull: false,
         },
-        responsaveis: {
+        responsavelId: {
             field: 'i_responsavel',
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -45,13 +44,13 @@ function model(sequelize){
             type: DataTypes.STRING(255),
             allowNull: false,
         },
-        ...camposComuns
-    }
+        ...camposComuns,
+    };
 
     const opcoes = {
         tableName: 'alunos',
-        timestamps: false,
+        timestamps: true,
     };
 
     return sequelize.define('Alunos', atributos, opcoes);
-}
+};
