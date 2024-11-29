@@ -1,10 +1,9 @@
-const db = require('../../../utils/database/database_postgres')
-
+const Alunos = require('../model/alunos');
 exports.criarAlunos = async (req, res, next) => {
     const { nome, matricula, diagnostico } = req.body;
 
     try {
-        const alunoExistente = await db.alunos.findOne({
+        const alunoExistente = await Alunos.findOne({
             where: { matricula }
         });
 

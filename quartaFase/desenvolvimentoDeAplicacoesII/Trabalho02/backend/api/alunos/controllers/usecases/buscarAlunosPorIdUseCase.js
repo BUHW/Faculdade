@@ -1,9 +1,9 @@
-const db = require('../../../utils/database/database_postgres')
+const Alunos = require('../model/alunos');
 
 exports.buscarAlunosPorId = async (req, res, next) => {
 
     try {
-        const aluno = await db.alunos.findOne({ where: { id: req.params.id } });
+        const aluno = await Alunos.findOne({ where: { id: req.params.id } });
         
         if (!aluno) {
             return res.status(400).json({ message: 'Aluno não encontrado' });

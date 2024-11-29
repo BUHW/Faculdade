@@ -1,9 +1,9 @@
-const db = require('../../../utils/database/database_postgres')
+const Alunos = require('../model/alunos');
 
 exports.buscarAlunos = async (req, res, next) => {
 
     try {
-        const alunos = await db.alunos.findAll({
+        const alunos = await Alunos.findAll({
             where: {
                 cancelado: false
             }
