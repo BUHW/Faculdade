@@ -1,9 +1,9 @@
-const db = require('../../../utils/database/database_postgres')
+const Funcionarios = require('../model/funcionarios');
 
 exports.buscarFuncionariosPorId = async (req, res, next) => {
 
     try {
-        const funcionario = await db.funcionarios.findOne({ where: { id: req.params.id } });
+        const funcionario = await Funcionarios.findOne({ where: { id: req.params.id } });
         
         if (!funcionario) {
             return res.status(400).json({ message: 'Funcionário não encontrado' });

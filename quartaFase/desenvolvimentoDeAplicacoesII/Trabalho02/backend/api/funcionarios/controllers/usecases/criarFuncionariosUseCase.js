@@ -1,10 +1,10 @@
-const db = require('../../../utils/database/database_postgres')
+const Funcionarios = require('../model/funcionarios');
 
 exports.criarFuncionarios = async (req, res, next) => {
     const { nome, email, tipo_funcionario } = req.body;
 
     try {
-        const funcionarioExistente = await db.funcionarios.findOne({
+        const funcionarioExistente = await Funcionarios.findOne({
             where: { email }
         });
 
@@ -12,7 +12,7 @@ exports.criarFuncionarios = async (req, res, next) => {
             return res.status(400).json({ Mensagem: 'Já existe um funcionario com esse email.' });
         }
 
-        const funcionario = await db.funcionarios.create({ nome, email, tipo_funcionario });
+        const funcionario = await Funcionarios.create({ nome, email, tipo_funcionario });
 
         return res.status(200).json({ conteudo: funcionario });
     } catch (e) {
