@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+const { DataTypes } = require('sequelize');
+const sequelize = require('./database_postgre');
 const { Students } = require("./students")
 const { Professionals } = require("./professionals")
 
