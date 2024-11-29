@@ -1,9 +1,9 @@
-const db = require('../../../utils/database/database_postgres')
+const Setores = require('../model/setores');
 
 exports.buscarSetoresPorId = async (req, res, next) => {
 
     try {
-        const setor = await db.setores.findOne({ where: { id: req.params.id } });
+        const setor = await Setores.findOne({ where: { id: req.params.id } });
         
         if (!setor) {
             return res.status(400).json({ message: 'Setor não encontrado' });

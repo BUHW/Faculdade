@@ -1,10 +1,10 @@
-const db = require('../../../utils/database/database_postgres')
+const Setores = require('../model/setores');
 
 exports.criarSetores = async (req, res, next) => {
     const { nome, descricao } = req.body;
 
     try {
-        const setorExistente = await db.setores.findOne({
+        const setorExistente = await Setores.findOne({
             where: { nome }
         });
 
@@ -12,7 +12,7 @@ exports.criarSetores = async (req, res, next) => {
             return res.status(400).json({ Mensagem: 'Já existe um setor com esse nome.' });
         }
 
-        const setor = await db.setores.create({ nome, descricao });
+        const setor = await Setores.create({ nome, descricao });
 
         return res.status(200).json({ conteudo: setor });
     } catch (e) {

@@ -1,8 +1,8 @@
-const db = require('../../../utils/database/database_postgres');
+const Setores = require('../model/setores');
 
 exports.editarSetores = async (req, res, next) => {
     try {
-        const setorAtualizado = await db.setores.update(req.body, { where: { id: req.params.id } });
+        const setorAtualizado = await Setores.update(req.body, { where: { id: req.params.id } });
         
         if (setorAtualizado[0] > 0) {
             res.status(200).json({ Mensagem: 'Setor atualizado' });

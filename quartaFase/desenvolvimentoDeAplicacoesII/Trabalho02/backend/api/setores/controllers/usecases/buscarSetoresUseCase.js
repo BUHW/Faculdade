@@ -1,9 +1,9 @@
-const db = require('../../../utils/database/database_postgres')
+const Setores = require('../model/setores');
 
 exports.buscarSetores = async (req, res, next) => {
 
     try {
-        const setores = await db.setores.findAll({
+        const setores = await Setores.findAll({
             where: {
                 cancelado: false
             }
