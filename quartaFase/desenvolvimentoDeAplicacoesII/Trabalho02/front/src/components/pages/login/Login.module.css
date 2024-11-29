@@ -1,0 +1,59 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--tertiary-color);
+}
+
+.left {
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right {
+    width: 35%;
+    background-color: var(--white);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    form {
+        img {
+            width: auto;
+            height: 64px;
+            margin-bottom: 20px;
+        }
+
+        .container_button {
+            width: 100%;
+            display: flex;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+
+            button {
+                width: 60%;
+            }
+        }
+
+        p {
+            button {
+                background-color: transparent;
+                border: none;
+                color: var(--black);
+                font-weight: 700;
+                cursor: pointer;
+            }
+
+            button:hover {
+                border-bottom: 2px solid var(--primary-color);
+            }
+        }
+    }
+}
+

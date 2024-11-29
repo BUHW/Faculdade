@@ -8,6 +8,30 @@
 :root {
   --primary-color: #f9dc04;
   --secondary-color: #59ac55;
-  --tertiary-color: #FFFFFF;
-  --quaternary-color: #000000;
+  --tertiary-color: #CECECE;
+  --black: #000000;
+  --white: #f4f4f4;
+}
+
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  color: var(--black) !important;
+  font-weight: 700 !important;
+}
+
+.btn-secondary {
+  background-color: transparent !important;
+  color: var(--primary-color) !important;
+}
+
+.MuiInputBase-root.MuiInput-root.MuiInput-underline::after {
+  border-bottom: 2px solid var(--primary-color);
+}
+
+label.Mui-focused {
+  color: var(--primary-color) !important;
+}
+
+.form-row {
+  margin: 20px 0;
 }
