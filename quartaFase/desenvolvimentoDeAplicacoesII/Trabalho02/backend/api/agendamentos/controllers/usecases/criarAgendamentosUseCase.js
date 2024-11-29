@@ -1,10 +1,10 @@
-const db = require('../../../utils/database/database_postgres')
+const Agendamentos = require('../model/agendamentos');
 
 exports.criarAgendamentos = async (req, res, next) => {
     const { dataAgendamento, horaInicio, tipo_atendimento } = req.body;
 
     try {
-        const agendamentoExistente = await db.agendamentos.findOne({
+        const agendamentoExistente = await Agendamentos.findOne({
             where: { dataAgendamento, horaInicio }
         });
 
@@ -12,7 +12,7 @@ exports.criarAgendamentos = async (req, res, next) => {
             return res.status(400).json({ Mensagem: 'Já existe agendamento para essa data e horário.' });
         }
 
-        const agendamento = await db.agendamentos.create({ dataAgendamento, horaInicio, tipo_atendimento });
+        const agendamento = await Agendamentos.create({ dataAgendamento, horaInicio, tipo_atendimento });
 
         return res.status(200).json({ conteudo: agendamento });
     } catch (e) {

@@ -1,9 +1,8 @@
-const db = require('../../../utils/database/database_postgres')
-
+const Agendamentos = require('../model/agendamentos');
 exports.buscarAgendamentos = async (req, res, next) => {
 
     try {
-        const agendamentos = await db.agendamentos.findAll({
+        const agendamentos = await Agendamentos.findAll({
             where: {
                 cancelado: false
             }

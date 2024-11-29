@@ -1,9 +1,9 @@
-const db = require('../../../utils/database/database_postgres')
+const Agendamentos = require('../model/agendamentos');
 
 exports.buscarAgendamentosPorId = async (req, res, next) => {
 
     try {
-        const agendamento = await db.agendamentos.findOne({ where: { id: req.params.id } });
+        const agendamento = await Agendamentos.findOne({ where: { id: req.params.id } });
         
         if (!agendamento) {
             return res.status(400).json({ message: 'Agendamento não encontrado' });
