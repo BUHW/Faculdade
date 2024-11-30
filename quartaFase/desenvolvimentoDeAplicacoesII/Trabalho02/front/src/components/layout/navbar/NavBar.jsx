@@ -68,8 +68,13 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 const items = [
-  { text: 'Usuário', path: '/' },
-  { text: 'Cadastrar Usuário', path: '/user/cadastrar' },
+  { text: 'Agenda', path: '/agenda' },
+  { text: 'Cadastrar alunos', path: '/aluno/cadastrar' },
+  { text: 'Listagem de alunos', path: '/aluno/listar' },
+  { text: 'Cadastrar profissional', path: '/profissional/cadastrar' },
+  { text: 'Listagem de profissional', path: '/profissional/listar' },
+  { text: 'Cadastrar responsável', path: '/responsavel/cadastrar' },
+  { text: 'Listagem de responsavél', path: '/responsavel/listar' },
 ];
 
 export default function Navbar() {
@@ -100,7 +105,7 @@ export default function Navbar() {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <CssBaseline/>
+      <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar className='container-toolbar'>
           <IconButton

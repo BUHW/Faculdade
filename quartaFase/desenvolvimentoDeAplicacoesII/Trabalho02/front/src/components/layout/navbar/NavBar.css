@@ -1,9 +1,9 @@
 header {
-    background-color: var(--tertiary) !important;
+    background-color: var(--primary-color) !important;
 }
 
 header .MuiButtonBase-root svg {
-    color: var(--primary);
+    color: var(--white);
 }
 
 .logo {

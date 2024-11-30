@@ -22,6 +22,8 @@
     justify-content: center;
 
     form {
+        width: 430px;
+
         img {
             width: auto;
             height: 64px;
@@ -44,10 +46,12 @@
         p {
             button {
                 background-color: transparent;
+                color: var(--primary-color);
                 border: none;
-                color: var(--black);
                 font-weight: 700;
                 cursor: pointer;
+                border-bottom: 2px solid transparent;
+                transition: all 0.3s ease-in-out;
             }
 
             button:hover {
@@ -55,5 +59,24 @@
             }
         }
     }
+}
+
+.confirm_password_description {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.confirm_password_description span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.confirm_password_container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 1rem;
 }
 
