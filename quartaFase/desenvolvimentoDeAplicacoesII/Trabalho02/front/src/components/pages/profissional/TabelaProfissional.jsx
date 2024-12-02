@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import Container from '../../layout/container/Container';
 
 export default function TabelaProfissional() {
     return (

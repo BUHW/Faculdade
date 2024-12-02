@@ -153,6 +153,6 @@ router.put('/:id', studentsController.update);
  *       500:
  *         description: Erro ao deletar estudante
  */
-router.delete('/:id', studentsController.delete);
+router.put('/:id', studentsController.delete);
 
 module.exports = router;

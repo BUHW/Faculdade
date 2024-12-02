@@ -1,37 +1,28 @@
 import moment from 'moment';
-import 'moment/locale/pt-br';
 import React, { useState } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import Container from '../../layout/container/Container';
+import CadAgenda from '../../layout/modal/agenda/CadAgenda';
 
-// Configuração do localizador do calendário
 const localizer = momentLocalizer(moment);
 
-// Traduções para o calendário
-const messages = {
-    allDay: 'Dia todo',
-    previous: 'Voltar',
-    next: 'Próximo',
-    today: 'Hoje',
-    month: 'Mês',
-    week: 'Semana',
-    day: 'Dia',
-    agenda: 'Agenda',
-    date: 'Data',
-    time: 'Hora',
-    event: 'Evento',
-    noEventsInRange: 'Não há eventos neste intervalo.',
-    showMore: total => `+ Ver mais (${total})`
-};
-
 export default function Agenda() {
-    const [events, setEvents] = useState([]); // Estado local para armazenar eventos
+    const [events, setEvents] = useState([]);
+    const [open, setOpen] = useState(false);
+    const [selectedSlot, setSelectedSlot] = useState(null);
 
-    // Adicionar um evento ao selecionar um intervalo
-    const handleSelectSlot = ({ start, end }) => {
-        const title = window.prompt('Digite o título do evento:');
-        if (title) {
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const handleSave = (title) => {
+        if (title && selectedSlot) {
+            const { start, end } = selectedSlot;
             setEvents((prevEvents) => [
                 ...prevEvents,
                 { start, end, title, id: new Date().getTime() }
@@ -39,7 +30,11 @@ export default function Agenda() {
         }
     };
 
-    // Remover um evento ao clicar
+    const handleSelectSlot = ({ start, end }) => {
+        setSelectedSlot({ start, end });
+        handleClickOpen();
+    };
+
     const handleSelectEvent = (event) => {
         if (window.confirm(`Deseja excluir o evento "${event.title}"?`)) {
             setEvents((prevEvents) => prevEvents.filter((e) => e.id !== event.id));
@@ -47,18 +42,20 @@ export default function Agenda() {
     };
 
     return (
-        <Container>
-            <Calendar
-                localizer={localizer}
-                events={events}
-                selectable
-                defaultView="month"
-                views={['month', 'week', 'day']}
-                onSelectSlot={handleSelectSlot}
-                onSelectEvent={handleSelectEvent}
-                style={{ height: 600 }}
-                messages={messages}
-            />
-        </Container>
+        <div>
+            <Container>
+                <Calendar
+                    localizer={localizer}
+                    events={events}
+                    selectable
+                    defaultView="month"
+                    views={['month', 'week', 'day']}
+                    onSelectSlot={handleSelectSlot}
+                    onSelectEvent={handleSelectEvent}
+                    style={{ height: 600 }}
+                />
+            </Container>
+            <CadAgenda open={open} handleClose={handleClose} handleSave={handleSave} />
+        </div>
     );
 }

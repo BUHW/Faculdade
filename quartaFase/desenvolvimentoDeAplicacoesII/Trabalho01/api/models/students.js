@@ -19,8 +19,7 @@ const studentsSchema = new Schema({
         required: true
     },
     special_needs: {
-        type: String,
-        required: true
+        type: String
     },
     status: {
         type: Boolean,

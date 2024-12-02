@@ -11,6 +11,7 @@
   --tertiary-color: #CECECE;
   --black: #000000;
   --white: #f4f4f4;
+  --color-today-agenda: #f9dc0456;
 }
 
 .btn-primary {
@@ -22,6 +23,7 @@
 .btn-secondary {
   background-color: transparent !important;
   color: var(--primary-color) !important;
+  font-weight: 700 !important;
 }
 
 .MuiInputBase-root.MuiInput-root.MuiInput-underline::after {
@@ -32,6 +34,19 @@ label.Mui-focused {
   color: var(--primary-color) !important;
 }
 
+.position_modal {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin-bottom: 20px;
+}
+
 .form-row {
   margin: 20px 0;
+  display: flex;
+}
+
+.form-row .input-data {
+  width: 100%;
+  margin: 0 20px;
 }

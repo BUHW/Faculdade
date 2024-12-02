@@ -69,11 +69,8 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 const items = [
   { text: 'Agenda', path: '/agenda' },
-  { text: 'Cadastrar alunos', path: '/aluno/cadastrar' },
   { text: 'Listagem de alunos', path: '/aluno/listar' },
-  { text: 'Cadastrar profissional', path: '/profissional/cadastrar' },
   { text: 'Listagem de profissional', path: '/profissional/listar' },
-  { text: 'Cadastrar responsável', path: '/responsavel/cadastrar' },
   { text: 'Listagem de responsavél', path: '/responsavel/listar' },
 ];
 

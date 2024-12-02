@@ -29,7 +29,7 @@ exports.create = async (req, res, next) => {
 exports.getAll = async (req, res, next) => {
     try {
         
-        const resp = await Students.find();
+        const resp = await Students.find().sort({ createdAt: -1 });
 
         if (!resp) {
             res.status(500).send({ message: 'Erro ao buscar estudantes' });
@@ -90,19 +90,22 @@ exports.update = async (req, res, next) => {
 
 exports.delete = async (req, res, next) => {
     try {
-        
         const id = req.params.id;
+        const { status } = req.body;
 
-        const resp = await Students.findByIdAndDelete(id);
+        const updatedStudent = await Students.findByIdAndUpdate(
+            id,
+            { status },
+            { new: true }
+        );
 
-        if (!resp) {
-            res.status(500).send({ message: 'Erro ao deletar estudante' });
-        } else {
-            res.status(200).send({ message: 'Estudante deletado com sucesso', student: resp });
+        if (!updatedStudent) {
+            return res.status(404).send({ message: 'Aluno não encontrado' });
         }
 
+        res.status(200).send({ message: 'Status atualizado com sucesso', student: updatedStudent });
     } catch (error) {
-        console.log('Erro ao processar dados do DELETE: ', error);
-        res.status(500).send('Erro ao processar dados do DELETE');
+        console.error('Erro ao atualizar status do aluno: ', error);
+        res.status(500).send({ message: 'Erro ao atualizar status do aluno' });
     }
 };

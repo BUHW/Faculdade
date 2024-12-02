@@ -1,5 +1,8 @@
 const { Users } = require('../models/users');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+
+const SECRET_KEY = 'secretKey';
 
 exports.login = async (req, res, next) => {
     try {
@@ -21,11 +24,21 @@ exports.login = async (req, res, next) => {
             return res.status(401).send({ message: 'Senha incorreta' });
         }
 
-        res.status(200).send({ message: 'Usuário logado com sucesso' });
-        
+        const token = jwt.sign(
+            { id: user.id, email: user.email },
+            SECRET_KEY,
+            { expiresIn: '1h' }
+        );
+
+        res.status(200).send({ 
+            message: 'Usuário logado com sucesso', 
+            nome: user.name,
+            token 
+        });
+
     } catch (error) {
-        console.log('Erro ao processar login: ', error);
-        res.status(500).send('Erro ao processar login');
+        console.error('Erro ao processar login: ', error);
+        res.status(500).send({ message: 'Erro ao processar login' });
     }
 };
 
@@ -121,15 +134,14 @@ exports.update = async (req, res, next) => {
 
 exports.delete = async (req, res, next) => {
     try {
-        
         const id = req.params.id;
 
-        const resp = await Users.findByIdAndDelete(id);
+        const resp = await Users.findByIdAndUpdate(id, { status: false }, { new: true });
 
         if (!resp) {
-            res.status(500).send({ message: 'Erro ao deletar usuário' });
+            res.status(500).send({ message: 'Erro ao atualizar status do usuário' });
         } else {
-            res.status(200).send({ message: 'Usuário deletado com sucesso', user: resp });
+            res.status(200).send({ message: 'Status do usuário atualizado com sucesso', user: resp });
         }
 
     } catch (error) {

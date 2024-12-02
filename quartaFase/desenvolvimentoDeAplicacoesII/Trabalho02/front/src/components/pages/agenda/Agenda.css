@@ -1,0 +1,14 @@
+.rbc-today {
+  background-color: var(--color-today-agenda);
+  color: white;
+}
+
+.rbc-event {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.rbc-header {
+  background-color: var(--primary-color);
+  color: white;
+}
