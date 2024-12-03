@@ -98,6 +98,18 @@ export default function ModificarResponsavel({ getResponsavel, selectedResponsav
         }
     }
 
+    async function deleteResponsavel() {
+        try {
+            await axios.delete(`${http}://${host}:${port}${appointments}/${selectedResponsavel._id}`);
+            getResponsavel();
+            setAlert({ show: true, severity: 'success', message: 'Responsável deletado com sucesso' });
+            handleClose();
+        } catch (e) {
+            console.error(e);
+            setAlert({ show: true, severity: 'error', message: 'Erro ao deletar responsável' });
+        }
+    }
+
     return (
         <Dialog
             open={isOpen}
@@ -182,11 +194,16 @@ export default function ModificarResponsavel({ getResponsavel, selectedResponsav
                         <Button type="submit" autoFocus className='btn-primary'>
                             {editMode ? 'EDITAR' : 'CADASTRAR'}
                         </Button>
+                        {editMode && (
+                            <Button onClick={deleteResponsavel} className='btn-danger'>
+                                DELETAR
+                            </Button>
+                        )}
                     </DialogActions>
                 </form>
             </DialogContent>
             <Snackbar
-                open={alert.show} e
+                open={alert.show}
                 autoHideDuration={5000}
                 onClose={handleClose}
                 anchorOrigin={{ vertical: 'top', horizontal: 'center' }}

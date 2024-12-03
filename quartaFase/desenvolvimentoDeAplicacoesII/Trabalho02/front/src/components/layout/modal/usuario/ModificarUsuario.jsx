@@ -136,6 +136,39 @@ export default function ModificarUsuario({ getUsuarios, selectedUsuarios, isOpen
         }
     }
 
+    async function deleteUsuario() {
+        if (!selectedUsuarios || !selectedUsuarios._id) {
+            setAlert({
+                show: true,
+                severity: 'error',
+                message: 'Nenhum usuário selecionado para deletar.'
+            });
+            return;
+        }
+    
+        try {
+            const url = `${http}://${host}:${port}${users}/${selectedUsuarios._id}`;
+            await axios.delete(url);
+    
+            getUsuarios();
+            clearFields();
+            setAlert({
+                show: true,
+                severity: 'success',
+                message: 'Usuário deletado com sucesso.'
+            });
+            handleClose();
+        } catch (e) {
+            console.error(e);
+            setAlert({
+                show: true,
+                severity: 'error',
+                message: 'Erro ao deletar o usuário.'
+            });
+        }
+    }
+    
+
     return (
         <Dialog open={isOpen} onClose={handleClose}>
             <DialogTitle>{editMode ? "Editar Usuário" : "Cadastrar Usuário"}</DialogTitle>
@@ -229,6 +262,9 @@ export default function ModificarUsuario({ getUsuarios, selectedUsuarios, isOpen
                         </div>
                     </div>
                     <DialogActions>
+                        {editMode && (
+                        <Button onClick={deleteUsuario} className="btn-danger">Deletar</Button>
+                        )}
                         <Button onClick={handleClose} className="btn-secondary">Cancelar</Button>
                         <Button type="submit" className="btn-primary">{editMode ? 'Editar' : 'Cadastrar'}</Button>
                     </DialogActions>

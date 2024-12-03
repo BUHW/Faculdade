@@ -85,7 +85,7 @@ export default function ModificarAluno({ getAlunos, selectedAluno, isOpen, onClo
                 });
                 getAlunos();
                 clearFields();
-                setAlert({ show: true, severity: 'success', message: 'Aluno cadastrado com sucesso' })
+                setAlert({ show: true, severity: 'success', message: 'Aluno cadastrado com sucesso' });
             } catch (e) {
                 console.error(e);
             }
@@ -96,10 +96,23 @@ export default function ModificarAluno({ getAlunos, selectedAluno, isOpen, onClo
                     status: true
                 });
                 getAlunos();
-                setAlert({ show: true, severity: 'success', message: 'Aluno editado com sucesso' })
+                setAlert({ show: true, severity: 'success', message: 'Aluno editado com sucesso' });
             } catch (e) {
                 console.error(e);
             }
+        }
+    }
+
+    async function deleteAluno() {
+        if (!selectedAluno?._id) return;
+        try {
+            await axios.delete(`${http}://${host}:${port}${students}/${selectedAluno._id}`);
+            getAlunos();
+            setAlert({ show: true, severity: 'success', message: 'Aluno excluído com sucesso' });
+            handleClose();
+        } catch (e) {
+            console.error(e);
+            setAlert({ show: true, severity: 'error', message: 'Erro ao excluir o aluno' });
         }
     }
 
@@ -184,6 +197,11 @@ export default function ModificarAluno({ getAlunos, selectedAluno, isOpen, onClo
                     </div>
                     <DialogActions>
                         <Button onClick={handleClose} className='btn-secondary'>FECHAR</Button>
+                        {editMode && (
+                            <Button onClick={deleteAluno} className='btn-danger'>
+                                EXCLUIR
+                            </Button>
+                        )}
                         <Button type="submit" autoFocus className='btn-primary'>
                             {editMode ? 'EDITAR' : 'CADASTRAR'}
                         </Button>

@@ -17,13 +17,16 @@ export default function CadAgenda({ open, handleClose, getEvent, selectedSlot, e
 
     useEffect(() => {
         if (selectedSlot && editMode) {
+            const start = moment(selectedSlot.start);
+            const end = moment(selectedSlot.end);
+    
             setAgenda({
                 id: selectedSlot.id,
                 title: selectedSlot.title,
                 description: selectedSlot.description,
-                date: moment(selectedSlot.start).format('YYYY-MM-DD'),
-                start: moment(selectedSlot.start).format('HH:mm'),
-                end: moment(selectedSlot.end).format('HH:mm'),
+                date: start.format('YYYY-MM-DD'),
+                start: start.format('HH:mm'),
+                end: end.format('HH:mm'),
                 location: selectedSlot.location,
                 participantes: selectedSlot.participantes,
             });
@@ -39,6 +42,7 @@ export default function CadAgenda({ open, handleClose, getEvent, selectedSlot, e
             });
         }
     }, [selectedSlot, editMode]);
+    
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -50,17 +54,21 @@ export default function CadAgenda({ open, handleClose, getEvent, selectedSlot, e
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const startUtc = moment(selectedSlot.start).utc().format();
-        const endUtc = moment(selectedSlot.end).utc().format();
-
+        const startUtc = moment(`${agenda.date}T${agenda.start}`).utc().format();
+        const endUtc = moment(`${agenda.date}T${agenda.end}`).utc().format();
+    
         try {
-
-            const resp = await axios.post(`${http}://${host}:${port}${events}`, {
+            const url = editMode
+                ? `${http}://${host}:${port}${events}/${agenda.id}`
+                : `${http}://${host}:${port}${events}`;
+            const method = editMode ? 'put' : 'post';
+    
+            await axios[method](url, {
                 ...agenda,
                 start: startUtc,
                 end: endUtc,
             });
-
+    
             setAgenda({
                 title: '',
                 description: '',
@@ -70,15 +78,14 @@ export default function CadAgenda({ open, handleClose, getEvent, selectedSlot, e
                 location: '',
                 participantes: ''
             });
-
-            setAgenda(resp.data);
-
+    
             getEvent();
             handleClose();
         } catch (error) {
             console.log(error);
         }
     };
+    
 
     return (
         <React.Fragment>
@@ -190,12 +197,16 @@ export default function CadAgenda({ open, handleClose, getEvent, selectedSlot, e
                                 />
                             </div>
                         </div>
-                        <DialogActions>
-                            <Button onClick={handleClose} className='btn-secondary'>FECHAR</Button>
-                            <Button type="submit" autoFocus className='btn-primary'>
-                                CADASTRAR
-                            </Button>
-                        </DialogActions>
+                    <DialogActions>
+                        {editMode && (
+                        <Button onClick={handleDelete} className='btn-danger'>DELETAR</Button>
+                        )}
+                        <Button onClick={handleClose} className='btn-secondary'>FECHAR</Button>
+                        <Button type="submit" autoFocus className='btn-primary'>
+                        {editMode ? 'EDITAR' : 'CADASTRAR'}
+                        </Button>
+                    </DialogActions>
+
                     </form>
                 </DialogContent>
             </Dialog>
