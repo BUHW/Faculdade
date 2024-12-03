@@ -45,29 +45,25 @@ export default function ModificarProfissional({ getProfissionais, selectedProfis
 
         let isValid = true;
 
-        if (name === 'age') {
-            isValid = /^\d*$/.test(value);
-        }
-
         if (name === 'phone_number') {
             const maskedValue = mphone(value);
             if (maskedValue.length > 15) return;
-            setProfissional((prevprofissional) => ({
-                ...prevprofissional,
+            setProfissional((prevProfissional) => ({
+                ...prevProfissional,
                 [name]: maskedValue,
             }));
             return;
         }
 
         if (isValid) {
-            setProfissional((prevprofissional) => ({
-                ...prevprofissional,
+            setProfissional((prevProfissional) => ({
+                ...prevProfissional,
                 [name]: value
             }));
         }
     }
 
-    async function postprofissionals(e) {
+    async function postProfissionais(e) {
         e.preventDefault();
         if (!editMode) {
             try {
@@ -77,7 +73,7 @@ export default function ModificarProfissional({ getProfissionais, selectedProfis
                 });
                 getProfissionais();
                 clearFields();
-                setAlert({ show: true, severity: 'success', message: 'profissional cadastrado com sucesso' })
+                setAlert({ show: true, severity: 'success', message: 'Profissional cadastrado com sucesso' });
             } catch (e) {
                 console.error(e);
             }
@@ -88,10 +84,23 @@ export default function ModificarProfissional({ getProfissionais, selectedProfis
                     status: true
                 });
                 getProfissionais();
-                setAlert({ show: true, severity: 'success', message: 'profissional editado com sucesso' })
+                setAlert({ show: true, severity: 'success', message: 'Profissional editado com sucesso' });
             } catch (e) {
                 console.error(e);
             }
+        }
+    }
+
+    async function deleteProfissionais() {
+        try {
+            await axios.delete(`${http}://${host}:${port}${professionals}/${selectedProfissional._id}`);
+            getProfissionais();
+            clearFields();
+            setAlert({ show: true, severity: 'success', message: 'Profissional deletado com sucesso' });
+            handleClose();
+        } catch (e) {
+            console.error(e);
+            setAlert({ show: true, severity: 'error', message: 'Erro ao deletar profissional' });
         }
     }
 
@@ -103,10 +112,10 @@ export default function ModificarProfissional({ getProfissionais, selectedProfis
             aria-describedby="alert-dialog-description"
         >
             <DialogTitle id="alert-dialog-title">
-                {editMode ? "Editar profissional" : "Cadastrar profissional"}
+                {editMode ? "Editar Profissional" : "Cadastrar Profissional"}
             </DialogTitle>
             <DialogContent>
-                <form onSubmit={postprofissionals}>
+                <form onSubmit={postProfissionais}>
                     <div className='form-row'>
                         <div className='input-data'>
                             <TextField
@@ -136,7 +145,7 @@ export default function ModificarProfissional({ getProfissionais, selectedProfis
                     <div className='form-row'>
                         <div className='input-data'>
                             <TextField
-                                label="Insira seu contato(ex: e-mail)"
+                                label="Insira seu contato (ex: e-mail)"
                                 variant="standard"
                                 fullWidth
                                 required
@@ -161,6 +170,11 @@ export default function ModificarProfissional({ getProfissionais, selectedProfis
                     </div>
                     <DialogActions>
                         <Button onClick={handleClose} className='btn-secondary'>FECHAR</Button>
+                        {editMode && (
+                            <Button onClick={deleteProfissionais} className='btn-danger'>
+                                DELETAR
+                            </Button>
+                        )}
                         <Button type="submit" autoFocus className='btn-primary'>
                             {editMode ? 'EDITAR' : 'CADASTRAR'}
                         </Button>
@@ -168,7 +182,7 @@ export default function ModificarProfissional({ getProfissionais, selectedProfis
                 </form>
             </DialogContent>
             <Snackbar
-                open={alert.show} e
+                open={alert.show}
                 autoHideDuration={5000}
                 onClose={handleClose}
                 anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
