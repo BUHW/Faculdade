@@ -3,11 +3,12 @@ import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { Alert, Button, FormControl, IconButton, Input, InputAdornment, InputLabel, Snackbar, TextField } from '@mui/material';
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router';
 import imgLogin from '../../../assets/img/login.svg';
 import logoApae from '../../../assets/img/logoApae.png';
 import { host, http, port, users } from '../../../variavel';
+import AuthContext from '../../auth/AuthContext';
 import styles from './Login.module.css';
 
 export default function Login() {
@@ -24,6 +25,7 @@ export default function Login() {
         match: false,
         email: false,
     });
+    const { loginSite } = useContext(AuthContext);
 
     const navigate = useNavigate();
 
@@ -74,7 +76,19 @@ export default function Login() {
                 setAlert({ show: true, severity: 'error', message: 'E-mail ou senha inválidos' })
             }
 
-            navigate('/agenda')
+            if (resp.status === 200) {
+                const { token, nome } = resp.data
+
+                localStorage.removeItem('token');
+                localStorage.setItem('token', token);
+                localStorage.removeItem('nome');
+                localStorage.setItem('nome', nome);
+
+                loginSite(token, nome);
+
+                navigate('/agenda')
+            }
+
         } catch (error) {
             console.log(error)
             setAlert({ show: true, severity: 'error', message: 'Erro ao realizar login' })

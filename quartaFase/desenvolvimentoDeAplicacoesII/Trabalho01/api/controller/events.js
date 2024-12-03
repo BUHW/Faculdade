@@ -6,6 +6,7 @@ exports.create = async (req, res, next) => {
         const events = new Events({
             title: req.body.title,
             description: req.body.description,
+            date: req.body.date,
             start: req.body.start,
             end: req.body.end,
             location: req.body.location,
@@ -68,6 +69,7 @@ exports.update = async (req, res, next) => {
         const events = {
             title: req.body.title,
             description: req.body.description,
+            date: req.body.date,
             start: req.body.start,
             end: req.body.end,
             location: req.body.location,

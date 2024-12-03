@@ -31,6 +31,7 @@ export default function Agenda() {
     const [event, setEvent] = useState([]);
     const [open, setOpen] = useState(false);
     const [selectedSlot, setSelectedSlot] = useState(null);
+    const [editMode, setEditMode] = useState(false);
 
     async function getEvent() {
         try {
@@ -47,6 +48,8 @@ export default function Agenda() {
     }, []);
 
     const handleClickOpen = () => {
+        setEditMode(false);
+        setSelectedSlot(null);
         setOpen(true);
     };
 
@@ -54,37 +57,30 @@ export default function Agenda() {
         setOpen(false);
     };
 
-    const handleSave = async (title) => {
-        if (title && selectedSlot) {
-            const { start, end } = selectedSlot;
-            const newEvent = {
-                start: moment(start).format(),
-                end: moment(end).format(),
-                title,
-                id: new Date().getTime()
-            };
-
-            try {
-                await axios.post(`${http}://${host}:${port}${events}`, newEvent);
-                setEvent((prevEvent) => [...prevEvent, newEvent]);
-                handleClose();
-            } catch (error) {
-                console.log(error);
-                alert('Erro ao salvar o evento');
-            }
-        }
-    };
-
     const handleSelectSlot = ({ start, end }) => {
-        setSelectedSlot({ start, end });
+        const startUtc = moment(start).utc().toDate();
+        const endUtc = moment(end).utc().toDate();
+
+        setSelectedSlot({ start: startUtc, end: endUtc });
         handleClickOpen();
     };
 
-    const handleSelectEvent = (event) => {
-        if (window.confirm(`Deseja excluir o evento "${event.title}"?`)) {
-            setEvent((prevEvent) => prevEvent.filter((e) => e.id !== event.id));
-        }
+    const handleSelectEvent = (selectedEvent) => {
+        setSelectedSlot({
+            id: selectedEvent.id,
+            title: selectedEvent.title,
+            description: selectedEvent.description,
+            date: moment(selectedEvent.start).format('YYYY-MM-DD'),
+            start: moment(selectedEvent.start).format('HH:mm'),
+            end: moment(selectedEvent.end).format('HH:mm'),
+            location: selectedEvent.location,
+            participantes: selectedEvent.participantes,
+        });
+
+        setEditMode(true);
+        setOpen(true);
     };
+
 
     return (
         <div>
@@ -105,7 +101,13 @@ export default function Agenda() {
                     style={{ height: 600 }}
                 />
             </Container>
-            <CadAgenda open={open} handleClose={handleClose} getEvent={getEvent} />
+            <CadAgenda
+                open={open}
+                handleClose={handleClose}
+                getEvent={getEvent}
+                selectedSlot={selectedSlot}
+                editMode={editMode}
+            />
         </div>
     );
 }

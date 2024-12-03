@@ -1,5 +1,5 @@
 {
-    "PORT": 8080,
+    "PORT": 8081,
     "DBMON_HOST": "mongodb+srv",
     "DBMON_USER": "victorapereira",
     "DBMON_PASS": "dD5TgWpvDvegV8D7"

@@ -1,18 +1,44 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
 import axios from 'axios';
 import moment from 'moment';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { events, host, http, port } from '../../../../variavel';
 
-export default function CadAgenda({ open, handleClose, getEvent }) {
+export default function CadAgenda({ open, handleClose, getEvent, selectedSlot, editMode }) {
     const [agenda, setAgenda] = useState({
         title: '',
         description: '',
+        date: '',
         start: '',
         end: '',
         location: '',
         participantes: ''
     });
+
+    useEffect(() => {
+        if (selectedSlot && editMode) {
+            setAgenda({
+                id: selectedSlot.id,
+                title: selectedSlot.title,
+                description: selectedSlot.description,
+                date: moment(selectedSlot.start).format('YYYY-MM-DD'),
+                start: moment(selectedSlot.start).format('HH:mm'),
+                end: moment(selectedSlot.end).format('HH:mm'),
+                location: selectedSlot.location,
+                participantes: selectedSlot.participantes,
+            });
+        } else {
+            setAgenda({
+                title: '',
+                description: '',
+                date: '',
+                start: '',
+                end: '',
+                location: '',
+                participantes: ''
+            });
+        }
+    }, [selectedSlot, editMode]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -24,24 +50,29 @@ export default function CadAgenda({ open, handleClose, getEvent }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const startUtc = moment(selectedSlot.start).utc().format();
+        const endUtc = moment(selectedSlot.end).utc().format();
 
         try {
 
             const resp = await axios.post(`${http}://${host}:${port}${events}`, {
                 ...agenda,
-                start: moment(agenda.start, "HH:mm").format(),
-                end: moment(agenda.end, "HH:mm").format(),
+                start: startUtc,
+                end: endUtc,
             });
 
             setAgenda({
                 title: '',
                 description: '',
+                date: '',
                 start: '',
                 end: '',
                 location: '',
                 participantes: ''
             });
+
             setAgenda(resp.data);
+
             getEvent();
             handleClose();
         } catch (error) {
@@ -79,7 +110,21 @@ export default function CadAgenda({ open, handleClose, getEvent }) {
                         <div className='form-row'>
                             <div className='input-data'>
                                 <TextField
-                                    label="Data inicial"
+                                    label="Data do evento"
+                                    variant="standard"
+                                    fullWidth
+                                    required
+                                    type="Date"
+                                    name="date"
+                                    value={agenda.date}
+                                    onChange={handleChange}
+                                />
+                            </div>
+                        </div>
+                        <div className='form-row'>
+                            <div className='input-data'>
+                                <TextField
+                                    label="Hora inicial"
                                     variant="standard"
                                     fullWidth
                                     required
@@ -92,7 +137,7 @@ export default function CadAgenda({ open, handleClose, getEvent }) {
                             </div>
                             <div className='input-data'>
                                 <TextField
-                                    label="Data final"
+                                    label="Hora final"
                                     variant="standard"
                                     fullWidth
                                     required

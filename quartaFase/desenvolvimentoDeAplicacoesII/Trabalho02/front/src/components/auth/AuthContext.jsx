@@ -6,29 +6,24 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [username, setUsername] = useState('');
-  const [userId, setUserId] = useState('');
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    const storedUsername = localStorage.getItem('username');
-    const storedUserId = localStorage.getItem('userID');
+    const storedUsername = localStorage.getItem('nome');
     if (token) {
       setIsAuthenticated(true);
       setUsername(storedUsername);
-      setUserId(storedUserId);
     }
     setIsLoading(false);
   }, []);
 
-  const login = useCallback((token, username, userId) => {
+  const loginSite = useCallback((token, username) => {
     try {
       localStorage.setItem('token', token);
-      localStorage.setItem('username', username);
-      localStorage.setItem('userID', userId);
+      localStorage.setItem('nome', username);
       setIsAuthenticated(true);
       setUsername(username);
-      setUserId(userId);
       setError(null);
     } catch (e) {
       setError('Failed to login');
@@ -38,11 +33,9 @@ export const AuthProvider = ({ children }) => {
   const logout = useCallback(() => {
     try {
       localStorage.removeItem('token');
-      localStorage.removeItem('username');
-      localStorage.removeItem('userID');
+      localStorage.removeItem('nome');
       setIsAuthenticated(false);
       setUsername('');
-      setUserId('');
       setError(null);
     } catch (e) {
       setError('Failed to logout');
@@ -50,7 +43,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout, isLoading, username, userId, error }}>
+    <AuthContext.Provider value={{ isAuthenticated, loginSite, logout, isLoading, username, error }}>
       {children}
     </AuthContext.Provider>
   );
