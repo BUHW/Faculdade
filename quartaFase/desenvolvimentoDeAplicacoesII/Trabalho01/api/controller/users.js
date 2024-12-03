@@ -9,19 +9,18 @@ exports.login = async (req, res, next) => {
         const { email, pass } = req.body;
 
         if (!email || !pass) {
-            return res.status(400).send({ message: 'Email e senha são obrigatórios' });
+            return res.status(400).send({ message: 'Email e senha são obrigatórios.' });
         }
 
         const user = await Users.findOne({ email });
-
         if (!user) {
-            return res.status(401).send({ message: 'Usuário não encontrado' });
+            console.warn(`Tentativa de login com email não encontrado: ${email}`);
+            return res.status(401).send({ message: 'Credenciais inválidas.' });
         }
 
-        const isMatch = bcrypt.compareSync(pass, user.pwd);
-
+        const isMatch = await bcrypt.compare(pass, user.pwd);
         if (!isMatch) {
-            return res.status(401).send({ message: 'Senha incorreta' });
+            return res.status(401).send({ message: 'Credenciais inválidas.' });
         }
 
         const token = jwt.sign(
@@ -30,15 +29,16 @@ exports.login = async (req, res, next) => {
             { expiresIn: '1h' }
         );
 
-        res.status(200).send({ 
-            message: 'Usuário logado com sucesso', 
+        return res.status(200).send({ 
+            message: 'Usuário logado com sucesso.',
             nome: user.name,
             token 
         });
 
     } catch (error) {
-        console.error('Erro ao processar login: ', error);
-        res.status(500).send({ message: 'Erro ao processar login' });
+        console.error('Erro ao processar login:', error.message);
+
+        return res.status(500).send({ message: 'Erro ao processar login. Tente novamente mais tarde.' });
     }
 };
 

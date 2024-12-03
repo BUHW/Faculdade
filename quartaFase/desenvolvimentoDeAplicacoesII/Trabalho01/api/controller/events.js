@@ -4,9 +4,12 @@ exports.create = async (req, res, next) => {
     try {
 
         const events = new Events({
+            title: req.body.title,
             description: req.body.description,
-            comments: req.body.comments,
-            date: req.body.date,
+            start: req.body.start,
+            end: req.body.end,
+            location: req.body.location,
+            participantes: req.body.participantes
         });
 
         const resp = await Events.create(events);
@@ -14,7 +17,7 @@ exports.create = async (req, res, next) => {
         if (!resp) {
             res.status(500).send({ message: 'Erro ao criar eventoo' });
         } else {
-            res.status(200).send({ message: 'Evento criado com sucesso', professional: resp });
+            res.status(200).send({ message: 'Evento criado com sucesso', content: resp });
         }
 
     } catch (error) {
@@ -31,7 +34,7 @@ exports.getAll = async (req, res, next) => {
         if (!resp) {
             res.status(500).send({ message: 'Erro ao buscar eventos' });
         } else {
-            res.status(200).send({ message: 'Eventos encontrados com sucesso', professionals: resp });
+            res.status(200).send({ message: 'Eventos encontrados com sucesso', content: resp });
         }
 
     } catch (error) {
@@ -49,7 +52,7 @@ exports.getById = async (req, res, next) => {
         if (!event) {
             res.status(500).send({ message: 'Erro ao buscar evento por id' });
         } else {
-            res.status(200).send({ message: 'Evento encontrado com sucesso', professional: professional });
+            res.status(200).send({ message: 'Evento encontrado com sucesso', content: professional });
         }
 
     } catch (error) {
@@ -63,9 +66,12 @@ exports.update = async (req, res, next) => {
         
         const id = req.params.id;
         const events = {
+            title: req.body.title,
             description: req.body.description,
-            comments: req.body.comments,
-            date: req.body.date,
+            start: req.body.start,
+            end: req.body.end,
+            location: req.body.location,
+            participantes: req.body.participantes
         }
 
         const resp = await Events.findByIdAndUpdate(id, events, { new: true });
@@ -73,7 +79,7 @@ exports.update = async (req, res, next) => {
         if (!resp) {
             res.status(500).send({ message: 'Erro ao atualizar Eventos' });
         } else {
-            res.status(200).send({ message: 'Eventos atualizado com sucesso', professional: resp });
+            res.status(200).send({ message: 'Eventos atualizado com sucesso', content: resp });
         }
 
     } catch (error) {
@@ -92,7 +98,7 @@ exports.delete = async (req, res, next) => {
         if (!resp) {
             res.status(500).send({ message: 'Erro ao deletar evento' });
         } else {
-            res.status(200).send({ message: 'Evento deletado com sucesso', professional: resp });
+            res.status(200).send({ message: 'Evento deletado com sucesso', content: resp });
         }
 
     } catch (error) {

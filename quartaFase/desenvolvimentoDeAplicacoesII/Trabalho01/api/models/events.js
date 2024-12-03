@@ -3,16 +3,32 @@ const { Schema } = mongoose;
 
 const eventsSchema = new Schema(
   {
+    title: {
+      type: String,
+      required: true,
+    },
     description: {
       type: String,
+    },
+    start: {
+      type: String,
       required: true,
     },
-    comments: {
+    end: {
+      type: String,
+      required: true,
+    },
+    location: {
       type: String,
     },
-    date: {
-      type: Date,
+    participantes: {
+      type: String,
       required: true,
+    },
+    cancelado: {
+      type: Boolean,
+      required: true,
+      default: false,
     },
   },
   { timestamps: true }

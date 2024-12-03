@@ -2,9 +2,12 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { Alert, Button, FormControl, IconButton, Input, InputAdornment, InputLabel, Snackbar, TextField } from '@mui/material';
+import axios from 'axios';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import imgLogin from '../../../assets/img/login.svg';
 import logoApae from '../../../assets/img/logoApae.png';
+import { host, http, port, users } from '../../../variavel';
 import styles from './Login.module.css';
 
 export default function Login() {
@@ -21,6 +24,8 @@ export default function Login() {
         match: false,
         email: false,
     });
+
+    const navigate = useNavigate();
 
     function handleChange(e) {
         const { name, value } = e.target;
@@ -56,14 +61,53 @@ export default function Login() {
         event.preventDefault();
     };
 
-    function loginOrCreate() {
-        // Implement your login or create account logic here
+    async function loginSystem(e) {
+        e.preventDefault();
+        try {
+            const resp = await axios.post(`${http}://${host}:${port}${users}/login`, {
+                ...login,
+                email: login.email,
+                pass: login.senha
+            })
+
+            if (!resp.status === 200) {
+                setAlert({ show: true, severity: 'error', message: 'E-mail ou senha inválidos' })
+            }
+
+            navigate('/agenda')
+        } catch (error) {
+            console.log(error)
+            setAlert({ show: true, severity: 'error', message: 'Erro ao realizar login' })
+        }
+    }
+
+    async function createUser() {
+        try {
+            const resp = await axios.post(`${http}://${host}:${port}${users}`, {
+                ...cadastro,
+                name: cadastro.nome,
+                email: cadastro.email,
+                pwd: cadastro.senha,
+                status: true
+            })
+
+            setCadastro(resp.data)
+
+            if (!resp.status === 200) {
+                setAlert({ show: true, severity: 'error', message: 'Login inválido' })
+            }
+
+            navigate('/agenda')
+
+        } catch (error) {
+            setAlert({ show: true, severity: 'error', message: 'Erro ao criar usuário' })
+        }
     }
 
     function handleSubmit(e) {
         e.preventDefault();
         if (validatePassword()) {
-            loginOrCreate();
+            createUser();
         }
     }
 
@@ -127,7 +171,7 @@ export default function Login() {
             </div>
             <div className={styles.right}>
                 {isLogin ? (
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={loginSystem}>
                         <img src={logoApae} alt={logoApae} />
                         <div>
                             <h1>Seja Bem-Vindo!!</h1>

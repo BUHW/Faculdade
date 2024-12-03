@@ -1,0 +1,19 @@
+.confirm_password_description {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.confirm_password_description span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.confirm_password_container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}

@@ -19,7 +19,6 @@ const usersSchema = new Schema({
     },
     level: {
         type: String,
-        required: true
     },
     status: {
         type: Boolean,

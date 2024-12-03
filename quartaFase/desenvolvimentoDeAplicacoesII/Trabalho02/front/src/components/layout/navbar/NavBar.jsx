@@ -72,6 +72,7 @@ const items = [
   { text: 'Listagem de alunos', path: '/aluno/listar' },
   { text: 'Listagem de profissional', path: '/profissional/listar' },
   { text: 'Listagem de responsavél', path: '/responsavel/listar' },
+  { text: 'Listagem de usuários', path: '/usuario/listar' },
 ];
 
 export default function Navbar() {

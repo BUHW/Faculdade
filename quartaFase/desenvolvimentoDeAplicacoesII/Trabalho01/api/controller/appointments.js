@@ -4,11 +4,14 @@ exports.create = async (req, res, next) => {
     try {
 
         const appointment = new Appointments({
+            name: req.body.name,
             specialty: req.body.specialty,
             comments: req.body.comments,
+            phone_number: req.body.phone_number,
             date: req.body.date,
             student: req.body.student,
-            professional: req.body.professional
+            professional: req.body.professional,
+            status: req.body.status
         });
 
         const resp = await Appointments.create(appointment);
@@ -65,11 +68,14 @@ exports.update = async (req, res, next) => {
         
         const id = req.params.id;
         const appointment = {
+            name: req.body.name,
             specialty: req.body.specialty,
             comments: req.body.comments,
+            phone_number: req.body.phone,
             date: req.body.date,
             student: req.body.student,
-            professional: req.body.professional
+            professional: req.body.professional,
+            status: req.body.status
         }
 
         const resp = await Appointments.findByIdAndUpdate(id, appointment, { new: true }).populate('student').populate('professional');

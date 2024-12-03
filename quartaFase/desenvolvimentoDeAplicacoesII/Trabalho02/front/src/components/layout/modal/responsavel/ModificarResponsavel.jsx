@@ -1,47 +1,42 @@
-import { Alert, Snackbar, TextField } from '@mui/material';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import axios from 'axios';
-import * as React from 'react';
-import { mphone } from '../../../../utils/MaskCell';
-import { host, http, port, students } from '../../../../variavel';
+import { Alert, Button, Dialog, DialogActions, DialogContent, DialogTitle, Snackbar, TextField } from "@mui/material";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { mphone } from "../../../../utils/MaskCell";
+import { appointments, host, http, port } from '../../../../variavel';
 
-export default function ModificarAluno({ getAlunos, selectedAluno, isOpen, onClose, editMode }) {
-    const [aluno, setAluno] = React.useState({
+export default function ModificarResponsavel({ getResponsavel, selectedResponsavel, isOpen, onClose, editMode }) {
+    const [responsavel, setResponsavel] = useState({
         name: '',
-        age: '',
-        parents: '',
+        specialty: '',
         phone_number: '',
-        special_needs: '',
+        date: '',
+        student: ''
     });
-    const [alert, setAlert] = React.useState({ show: false, severity: '', message: '' });
-
-    React.useEffect(() => {
-        if (selectedAluno) {
-            setAluno(selectedAluno);
-        } else {
-            setAluno({
-                name: '',
-                age: '',
-                parents: '',
-                phone_number: '',
-                special_needs: '',
-            });
-        }
-    }, [selectedAluno]);
+    const [alert, setAlert] = useState({ show: false, severity: '', message: '' });
 
     function clearFields() {
-        setAluno({
+        setResponsavel({
             name: '',
-            age: '',
-            parents: '',
+            specialty: '',
             phone_number: '',
-            special_needs: '',
+            date: '',
+            student: ''
         });
     }
+
+    useEffect(() => {
+        if (selectedResponsavel) {
+            setResponsavel(selectedResponsavel);
+        } else {
+            setResponsavel({
+                name: '',
+                specialty: '',
+                phone_number: '',
+                date: '',
+                student: ''
+            });
+        }
+    }, [selectedResponsavel]);
 
     const handleClose = () => {
         setAlert({ ...alert, show: false });
@@ -60,43 +55,43 @@ export default function ModificarAluno({ getAlunos, selectedAluno, isOpen, onClo
         if (name === 'phone_number') {
             const maskedValue = mphone(value);
             if (maskedValue.length > 15) return;
-            setAluno((prevAluno) => ({
-                ...prevAluno,
+            setResponsavel((prevresponsavel) => ({
+                ...prevresponsavel,
                 [name]: maskedValue,
             }));
             return;
         }
 
         if (isValid) {
-            setAluno((prevAluno) => ({
-                ...prevAluno,
+            setResponsavel((prevresponsavel) => ({
+                ...prevresponsavel,
                 [name]: value
             }));
         }
     }
 
-    async function postAlunos(e) {
+    async function postResponsavels(e) {
         e.preventDefault();
         if (!editMode) {
             try {
-                await axios.post(`${http}://${host}:${port}${students}`, {
-                    ...aluno,
+                await axios.post(`${http}://${host}:${port}${appointments}`, {
+                    ...responsavel,
                     status: true
                 });
-                getAlunos();
+                getResponsavel();
                 clearFields();
-                setAlert({ show: true, severity: 'success', message: 'Aluno cadastrado com sucesso' })
+                setAlert({ show: true, severity: 'success', message: 'Responsável cadastrado com sucesso' })
             } catch (e) {
                 console.error(e);
             }
         } else {
             try {
-                await axios.put(`${http}://${host}:${port}${students}/${selectedAluno._id}`, {
-                    ...aluno,
+                await axios.put(`${http}://${host}:${port}${appointments}/${selectedResponsavel._id}`, {
+                    ...responsavel,
                     status: true
                 });
-                getAlunos();
-                setAlert({ show: true, severity: 'success', message: 'Aluno editado com sucesso' })
+                getResponsavel();
+                setAlert({ show: true, severity: 'success', message: 'Responsável editado com sucesso' })
             } catch (e) {
                 console.error(e);
             }
@@ -111,49 +106,37 @@ export default function ModificarAluno({ getAlunos, selectedAluno, isOpen, onClo
             aria-describedby="alert-dialog-description"
         >
             <DialogTitle id="alert-dialog-title">
-                {editMode ? "Editar Aluno" : "Cadastrar Aluno"}
+                {editMode ? "Editar responsável" : "Cadastrar responsável"}
             </DialogTitle>
             <DialogContent>
-                <form onSubmit={postAlunos}>
+                <form onSubmit={postResponsavels}>
                     <div className='form-row'>
                         <div className='input-data'>
                             <TextField
-                                label="Insira seu nome"
+                                label="Insira um nome"
                                 variant="standard"
                                 fullWidth
                                 required
                                 type="text"
                                 name="name"
-                                value={aluno.name || ''}
+                                value={responsavel.name || ''}
                                 onChange={handleChange}
                             />
                         </div>
                         <div className='input-data'>
                             <TextField
-                                label="Insira sua idade"
+                                label="Insira uma especialidade"
                                 variant="standard"
                                 fullWidth
                                 required
                                 type="text"
-                                name="age"
-                                value={aluno.age || ''}
+                                name="specialty"
+                                value={responsavel.specialty || ''}
                                 onChange={handleChange}
                             />
                         </div>
                     </div>
                     <div className='form-row'>
-                        <div className='input-data'>
-                            <TextField
-                                label="Insira seu responsável"
-                                variant="standard"
-                                fullWidth
-                                required
-                                type="text"
-                                name="parents"
-                                value={aluno.parents || ''}
-                                onChange={handleChange}
-                            />
-                        </div>
                         <div className='input-data'>
                             <TextField
                                 label="Insira seu número de telefone"
@@ -162,7 +145,20 @@ export default function ModificarAluno({ getAlunos, selectedAluno, isOpen, onClo
                                 required
                                 type="text"
                                 name="phone_number"
-                                value={aluno.phone_number || ''}
+                                value={responsavel.phone_number || ''}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className='input-data'>
+                            <TextField
+                                label="Data de aniversário"
+                                variant="standard"
+                                fullWidth
+                                required
+                                type="date"
+                                name="date"
+                                focused
+                                value={responsavel.date || ''}
                                 onChange={handleChange}
                             />
                         </div>
@@ -170,14 +166,13 @@ export default function ModificarAluno({ getAlunos, selectedAluno, isOpen, onClo
                     <div className='form-row'>
                         <div className='input-data'>
                             <TextField
-                                label="Insira condição especial caso tenha"
+                                label="Nome do aluno"
                                 variant="standard"
                                 fullWidth
-                                multiline
-                                rows={3}
+                                required
                                 type="text"
-                                name="special_needs"
-                                value={aluno.special_needs || ''}
+                                name="student"
+                                value={responsavel.student || ''}
                                 onChange={handleChange}
                             />
                         </div>
@@ -191,7 +186,7 @@ export default function ModificarAluno({ getAlunos, selectedAluno, isOpen, onClo
                 </form>
             </DialogContent>
             <Snackbar
-                open={alert.show}
+                open={alert.show} e
                 autoHideDuration={5000}
                 onClose={handleClose}
                 anchorOrigin={{ vertical: 'top', horizontal: 'center' }}

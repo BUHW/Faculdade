@@ -2,6 +2,7 @@ import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
+import { TextField } from '@mui/material';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
@@ -22,47 +23,44 @@ function TablePaginationActions(props) {
     const theme = useTheme();
     const { count, page, rowsPerPage, onPageChange } = props;
 
-    const handleFirstPageButtonClick = (event) => {
-        onPageChange(event, 0);
-    };
+    const handlePageChange = (event, direction) => {
+        const newPage =
+            direction === 'next'
+                ? page + 1
+                : direction === 'prev'
+                    ? page - 1
+                    : direction === 'first'
+                        ? 0
+                        : Math.max(0, Math.ceil(count / rowsPerPage) - 1);
 
-    const handleBackButtonClick = (event) => {
-        onPageChange(event, page - 1);
-    };
-
-    const handleNextButtonClick = (event) => {
-        onPageChange(event, page + 1);
-    };
-
-    const handleLastPageButtonClick = (event) => {
-        onPageChange(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1));
+        onPageChange(event, newPage);
     };
 
     return (
         <Box sx={{ flexShrink: 0, ml: 2.5 }}>
             <IconButton
-                onClick={handleFirstPageButtonClick}
+                onClick={(event) => handlePageChange(event, 'first')}
                 disabled={page === 0}
                 aria-label="first page"
             >
                 {theme.direction === 'rtl' ? <LastPageIcon /> : <FirstPageIcon />}
             </IconButton>
             <IconButton
-                onClick={handleBackButtonClick}
+                onClick={(event) => handlePageChange(event, 'prev')}
                 disabled={page === 0}
                 aria-label="previous page"
             >
                 {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
             </IconButton>
             <IconButton
-                onClick={handleNextButtonClick}
+                onClick={(event) => handlePageChange(event, 'next')}
                 disabled={page >= Math.ceil(count / rowsPerPage) - 1}
                 aria-label="next page"
             >
                 {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
             </IconButton>
             <IconButton
-                onClick={handleLastPageButtonClick}
+                onClick={(event) => handlePageChange(event, 'last')}
                 disabled={page >= Math.ceil(count / rowsPerPage) - 1}
                 aria-label="last page"
             >
@@ -75,6 +73,7 @@ function TablePaginationActions(props) {
 export default function TableList({ columns, rows, loading }) {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(5);
+    const [filter, setFilter] = useState('');
 
     const emptyRows =
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
@@ -88,12 +87,28 @@ export default function TableList({ columns, rows, loading }) {
         setPage(0);
     };
 
+    const handleFilterChange = (event) => {
+        setFilter(event.target.value.toLowerCase());
+    };
+
     const getDisplayValue = (value) => {
         return value === null || value === '' || value === undefined ? '-' : value;
     };
 
+    const filteredRows = rows.filter(row =>
+        columns.some(col =>
+            getDisplayValue(row[col.field]).toLowerCase().includes(filter)
+        )
+    );
+
     return (
         <TableContainer component={Paper}>
+            <TextField
+                label="Filtrar"
+                value={filter}
+                onChange={handleFilterChange}
+                variant="standard"
+            />
             <Table sx={{ minWidth: 650 }} aria-label="dynamic table">
                 <TableHead>
                     <TableRow>
@@ -117,8 +132,8 @@ export default function TableList({ columns, rows, loading }) {
                         ))
                     ) : (
                         (rowsPerPage > 0
-                            ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                            : rows
+                            ? filteredRows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                            : filteredRows
                         ).map((row, rowIndex) => (
                             <TableRow key={rowIndex} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                 {columns.map((column, colIndex) => (
@@ -157,7 +172,7 @@ export default function TableList({ columns, rows, loading }) {
                         <TablePagination
                             rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
                             colSpan={columns.length}
-                            count={rows.length}
+                            count={filteredRows.length}
                             rowsPerPage={rowsPerPage}
                             page={page}
                             slotProps={{
