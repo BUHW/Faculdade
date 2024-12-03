@@ -58,12 +58,18 @@ export default function TabelaProfissional() {
         try {
             const profissionalToChange = profissionais.find((profissional) => profissional._id === id);
             const newStatus = profissionalToChange.status === 'Ativo' ? false : true;
+
             await axios.put(`${http}://${host}:${port}${professionals}/${id}`, { status: newStatus });
-            setStatusProfissional(newStatus);
-            setAlert({ show: true, severity: 'success', message: 'Profissional excluido com sucesso' });
             getProfissionais();
+
+            setAlert({
+                show: true,
+                severity: 'success',
+                message: newStatus ? 'Profissional ativado com sucesso!' : 'Profissional inativado com sucesso!',
+            });
         } catch (error) {
-            setAlert({ show: true, severity: 'error', message: 'Erro ao alterar profissional' });
+            console.error('Erro ao atualizar status do profissional:', error);
+            setAlert({ show: true, severity: 'error', message: 'Erro ao atualizar status do profissional' });
         }
     }
 
@@ -141,7 +147,7 @@ export default function TabelaProfissional() {
                     handleClose={handleCloseAlert}
                     description={statusProfissional === true ? 'Deseja realmente ativar este profissional?' : 'Deseja realmente inativar este profissional?'}
                     title={statusProfissional === true ? 'Ativar profissional' : 'Inativar profissional'}
-                    handle={deleteProfissional}
+                    handle={() => deleteProfissional(selectedProfissional)}
                 />
             )}
             <Snackbar
