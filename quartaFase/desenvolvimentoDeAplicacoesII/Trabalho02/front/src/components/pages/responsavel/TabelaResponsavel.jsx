@@ -68,6 +68,7 @@ export default function TabelaResponsavel() {
                 severity: 'success',
                 message: newStatus ? 'responsavel ativado com sucesso!' : 'responsavel inativado com sucesso!',
             });
+            onclose();
         } catch (error) {
             console.error('Erro ao atualizar status do responsavel:', error);
             setAlert({ show: true, severity: 'error', message: 'Erro ao atualizar status do responsavel' });
@@ -153,7 +154,7 @@ export default function TabelaResponsavel() {
                     handleClose={handleAlertClose}
                     description={statusResponsavel === true ? 'Deseja realmente ativar este responsavel?' : 'Deseja realmente inativar este responsavel?'}
                     title={statusResponsavel === true ? 'Ativar responsável' : 'Inativar responsável'}
-                    handle={deleteResponsavel}
+                    handle={() => deleteResponsavel(selectedResponsavel)}
                 />
             )}
 

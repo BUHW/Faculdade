@@ -1,0 +1,5 @@
+.btn_dropdown {
+    background-color: transparent !important;
+    color: var(--white) !important;
+    font-weight: bold;
+}

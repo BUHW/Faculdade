@@ -21,11 +21,21 @@ export default function CadAgenda({ open, handleClose, getEvent, selectedSlot, e
                 id: selectedSlot.id,
                 title: selectedSlot.title,
                 description: selectedSlot.description,
-                date: moment(selectedSlot.start).format('YYYY-MM-DD'),
+                date: selectedSlot.date || moment(selectedSlot.start).format('YYYY-MM-DD'),
                 start: moment(selectedSlot.start).format('HH:mm'),
                 end: moment(selectedSlot.end).format('HH:mm'),
                 location: selectedSlot.location,
                 participantes: selectedSlot.participantes,
+            });
+        } else if (selectedSlot) {
+            setAgenda({
+                title: '',
+                description: '',
+                date: selectedSlot.date || moment(selectedSlot.start).format('YYYY-MM-DD'),
+                start: '',
+                end: '',
+                location: '',
+                participantes: ''
             });
         } else {
             setAgenda({
@@ -50,16 +60,18 @@ export default function CadAgenda({ open, handleClose, getEvent, selectedSlot, e
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const startUtc = moment(selectedSlot.start).utc().format();
-        const endUtc = moment(selectedSlot.end).utc().format();
+
+        const startUtc = moment(`${agenda.date} ${agenda.start}`, 'YYYY-MM-DD HH:mm').utc().format();
+        const endUtc = moment(`${agenda.date} ${agenda.end}`, 'YYYY-MM-DD HH:mm').utc().format();
 
         try {
-
             const resp = await axios.post(`${http}://${host}:${port}${events}`, {
                 ...agenda,
                 start: startUtc,
                 end: endUtc,
             });
+
+            setAgenda(resp.data)
 
             setAgenda({
                 title: '',
@@ -70,8 +82,6 @@ export default function CadAgenda({ open, handleClose, getEvent, selectedSlot, e
                 location: '',
                 participantes: ''
             });
-
-            setAgenda(resp.data);
 
             getEvent();
             handleClose();
@@ -114,8 +124,9 @@ export default function CadAgenda({ open, handleClose, getEvent, selectedSlot, e
                                     variant="standard"
                                     fullWidth
                                     required
-                                    type="Date"
+                                    type="date"
                                     name="date"
+                                    focused
                                     value={agenda.date}
                                     onChange={handleChange}
                                 />

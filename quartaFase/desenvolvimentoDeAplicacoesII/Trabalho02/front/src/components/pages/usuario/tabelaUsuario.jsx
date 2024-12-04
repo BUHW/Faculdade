@@ -68,6 +68,7 @@ export default function TabelaUsuario() {
                 severity: 'success',
                 message: newStatus ? 'usuario ativado com sucesso!' : 'usuario inativado com sucesso!',
             });
+            onclose();
         } catch (error) {
             console.error('Erro ao atualizar status do usuario:', error);
             setAlert({ show: true, severity: 'error', message: 'Erro ao atualizar status do usuario' });
@@ -149,7 +150,7 @@ export default function TabelaUsuario() {
                     handleClose={handleAlertClose}
                     description={statusUsuarios === true ? 'Deseja realmente ativar este usuario?' : 'Deseja realmente inativar este usuario?'}
                     title={statusUsuarios === true ? 'Ativar usuario' : 'Inativar usuario'}
-                    handle={deleteUsuario}
+                    handle={() => deleteUsuario(selectedUsuario)}
                 />
             )}
 

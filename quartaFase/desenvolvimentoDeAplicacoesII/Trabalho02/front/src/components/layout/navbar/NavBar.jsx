@@ -19,6 +19,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 // import AccessUser from './AccessUser';
 
+import AccessUser from '../AccessUser/AccessUser';
 import './NavBar.css';
 
 const drawerWidth = 240;
@@ -115,7 +116,7 @@ export default function Navbar() {
           >
             <MenuIcon />
           </IconButton>
-          {/* <AccessUser /> */}
+          <AccessUser />
         </Toolbar>
       </AppBar>
       <Drawer

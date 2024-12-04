@@ -61,9 +61,15 @@ export default function Agenda() {
         const startUtc = moment(start).utc().toDate();
         const endUtc = moment(end).utc().toDate();
 
-        setSelectedSlot({ start: startUtc, end: endUtc });
+        setSelectedSlot({
+            start: startUtc,
+            end: endUtc,
+            date: moment(start).format('YYYY-MM-DD'),
+        });
+
         handleClickOpen();
     };
+
 
     const handleSelectEvent = (selectedEvent) => {
         setSelectedSlot({

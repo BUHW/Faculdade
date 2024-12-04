@@ -58,7 +58,11 @@ export default function TabelaProfissional() {
         try {
             const profissionalToChange = profissionais.find((profissional) => profissional._id === id);
             const newStatus = profissionalToChange.status === 'Ativo' ? false : true;
-            await axios.put(`${http}://${host}:${port}${professionals}/${id}`, { status: newStatus });
+            await axios.put(`${http}://${host}:${port}${professionals}/${id}`, {
+                ...professionals,
+                status: newStatus
+            });
+
             setStatusProfissional(newStatus);
             setAlert({ show: true, severity: 'success', message: 'Profissional excluido com sucesso' });
             getProfissionais();
@@ -67,8 +71,14 @@ export default function TabelaProfissional() {
         }
     }
 
-    function handleAlertOpen() {
-        const profissionalToChange = profissionais.find((profissional) => profissional._id === selectedProfissional._id);
+    function handleAlertOpen(id) {
+        const profissionalToChange = profissionais.find((profissional) => profissional._id === id);
+
+        if (!profissionalToChange) {
+            setAlert({ show: true, severity: 'error', message: 'Profissional não encontrado' });
+            return;
+        }
+
         const newStatus = profissionalToChange.status === 'Ativo' ? 'inativar' : 'ativar';
         setStatusProfissional(newStatus);
         setAlertOpen(true);
@@ -78,13 +88,13 @@ export default function TabelaProfissional() {
         setAlertOpen(false);
     }
 
-    const opcoesMenu = (aluno) => {
+    const opcoesMenu = (professional) => {
         const options = []
 
-        if (aluno.status !== false) {
-            options.push({ label: 'Editar', onClick: () => openEditModalProfissionais(aluno) })
+        if (professional.status !== false) {
+            options.push({ label: 'Editar', onClick: () => openEditModalProfissionais(professional) })
         }
-        options.push({ label: aluno.status === 'Ativo' ? 'Inativar' : 'Ativar', onClick: () => handleAlertOpen(aluno._id) })
+        options.push({ label: professional.status === 'Ativo' ? 'Inativar' : 'Ativar', onClick: () => handleAlertOpen(professional._id) })
 
         return options;
     }
@@ -141,7 +151,7 @@ export default function TabelaProfissional() {
                     handleClose={handleCloseAlert}
                     description={statusProfissional === true ? 'Deseja realmente ativar este profissional?' : 'Deseja realmente inativar este profissional?'}
                     title={statusProfissional === true ? 'Ativar profissional' : 'Inativar profissional'}
-                    handle={deleteProfissional}
+                    handle={() => deleteProfissional(selectedProfissional)}
                 />
             )}
             <Snackbar

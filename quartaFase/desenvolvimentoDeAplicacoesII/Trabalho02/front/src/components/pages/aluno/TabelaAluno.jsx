@@ -58,6 +58,10 @@ export default function TabelaAluno() {
     async function deleteAluno(id) {
         try {
             const alunoToChange = alunos.find((aluno) => aluno._id === id);
+            console.log(alunoToChange);
+            if (!alunoToChange) {
+                throw new Error('Aluno não encontrado');
+            }
             const newStatus = alunoToChange.status === 'Ativo' ? false : true;
 
             await axios.put(`${http}://${host}:${port}${students}/${id}`, { status: newStatus });
@@ -68,6 +72,7 @@ export default function TabelaAluno() {
                 severity: 'success',
                 message: newStatus ? 'Aluno ativado com sucesso!' : 'Aluno inativado com sucesso!',
             });
+            onclose();
         } catch (error) {
             console.error('Erro ao atualizar status do aluno:', error);
             setAlert({ show: true, severity: 'error', message: 'Erro ao atualizar status do aluno' });
@@ -157,7 +162,7 @@ export default function TabelaAluno() {
                     handleClose={handleAlertClose}
                     description={statusAluno === true ? 'Deseja realmente ativar este aluno?' : 'Deseja realmente inativar este aluno?'}
                     title={statusAluno === true ? 'Ativar aluno' : 'Inativar aluno'}
-                    handle={deleteAluno}
+                    handle={() => deleteAluno(selectedAluno)}
                 />
             )}
 
