@@ -1,0 +1,209 @@
+
+-- Tabela de usuarios
+CREATE TABLE usuarios (
+    i_usuario SERIAL PRIMARY KEY,
+    email VARCHAR(100) NOT null unique,
+    nome varchar(100) not null,
+    senha VARCHAR(255) NOT NULL,
+    cancelado BOOLEAN NOT NULL,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+--Tabela de permissoes
+CREATE TABLE permissoes (
+    i_permissao SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL UNIQUE,
+    grupo varchar(100) not null,
+    descricao TEXT,
+    cancelado BOOLEAN NOT NULL,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+--Tabela com relacionamento das permissoes
+CREATE TABLE usuarios_permissoes (
+    i_usuario INT REFERENCES usuarios(i_usuario) ON DELETE CASCADE,
+    i_permissao INT REFERENCES permissoes(i_permissao) ON DELETE CASCADE,
+    PRIMARY KEY (i_usuario, i_permissao)
+);
+
+-- Tabela de Responsáveis
+CREATE TABLE responsaveis (
+    i_responsavel SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    contato VARCHAR(15) NOT NULL,
+    endereco VARCHAR(255) NOT NULL,
+    i_aluno INT REFERENCES alunos(i_aluno) ON DELETE SET NULL,
+    relacao_aluno VARCHAR(50) NOT NULL,
+    cancelado BOOLEAN NOT NULL,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabela de Especialidades
+CREATE TABLE especialidades (
+    i_especialidade SERIAL PRIMARY KEY,
+    nome_especialidade VARCHAR(100) NOT NULL,
+    cancelado BOOLEAN NOT NULL,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabela de Setores
+CREATE TABLE setores (
+    i_setor SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    descricao VARCHAR(255),
+    cancelado BOOLEAN NOT NULL,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabela de Alunos
+CREATE TABLE alunos (
+    i_aluno SERIAL PRIMARY key,
+    nome VARCHAR(100) NOT NULL,
+    sobrenome VARCHAR(50) NOT NULL,
+    data_nascimento DATE NOT NULL,
+    matricula VARCHAR(50) NOT NULL,
+    genero VARCHAR(2) NOT NULL,
+    i_responsavel INT REFERENCES responsaveis(i_responsavel) ON DELETE SET NULL,
+    diagnostico VARCHAR(255),
+    cancelado BOOLEAN NOT NULL,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabela de Funcionários
+CREATE TABLE funcionarios (
+    i_funcionario SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    i_especialidade INT REFERENCES especialidades(id_especialidade) ON DELETE SET NULL,
+    disponibilidade BOOLEAN NOT NULL,
+    telefone VARCHAR(15) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    tipo_funcionario VARCHAR(50) NOT NULL,
+    i_setor INT REFERENCES setores(i_setor) ON DELETE SET NULL,
+    cancelado BOOLEAN NOT NULL,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabela de Agendamentos
+CREATE TABLE agendamentos (
+    i_agendamento SERIAL PRIMARY KEY,
+    i_aluno INT REFERENCES alunos(i_aluno) ON DELETE CASCADE,
+    i_funcionario INT REFERENCES funcionarios(i_funcionario) ON DELETE SET NULL,
+    data_agendamento DATE NOT NULL,
+    hora_inicio TIMESTAMP NOT NULL,
+    hora_fim TIMESTAMP NOT NULL,
+    tipo_atendimento VARCHAR(50),
+    justificativa_ausencia TEXT,
+    observacao TEXT,
+    cancelado BOOLEAN NOT NULL,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabela de Frequência
+CREATE TABLE frequencia (
+    i_frequencia SERIAL PRIMARY KEY,
+    i_aluno INT REFERENCES alunos(i_aluno) ON DELETE CASCADE,
+    i_agendamento INT REFERENCES agendamentos(i_agendamento) ON DELETE CASCADE,
+    presenca BOOLEAN NOT NULL,
+    cancelado BOOLEAN NOT NULL,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabela de Histórico de Alunos
+CREATE TABLE historico_alunos (
+    i_historico SERIAL PRIMARY KEY,
+    i_aluno INT REFERENCES alunos(i_aluno),
+    data_evento DATE NOT NULL,
+    descricao_evento TEXT,
+    cancelado BOOLEAN NOT NULL,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+
+-- Tabela de Notificações
+CREATE TABLE notificacoes (
+    i_notificacao SERIAL PRIMARY KEY,
+    i_responsavel INT REFERENCES responsaveis(i_responsavel),
+    i_agendamento INT REFERENCES agendamentos(i_agendamento),
+    mensagem TEXT NOT NULL,
+    enviada BOOLEAN DEFAULT FALSE,
+    cancelado BOOLEAN NOT NULL,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- trigger / function
+
+CREATE OR REPLACE FUNCTION update_timestamp()
+RETURNS TRIGGER AS $$
+BEGIN
+   NEW.updatedAt = NOW();
+   RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER set_timestamp
+BEFORE UPDATE ON alunos
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();
+
+CREATE TRIGGER set_timestamp
+BEFORE UPDATE ON funcionarios
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();
+
+CREATE TRIGGER set_timestamp
+BEFORE UPDATE ON especialidades
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();
+
+CREATE TRIGGER set_timestamp
+BEFORE UPDATE ON frequencia
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();
+
+CREATE TRIGGER set_timestamp
+BEFORE UPDATE ON agendamentos
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();
+
+CREATE TRIGGER set_timestamp
+BEFORE UPDATE ON historico_alunos
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();
+
+CREATE TRIGGER set_timestamp
+BEFORE UPDATE ON notificacoes
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();
+
+CREATE TRIGGER set_timestamp
+BEFORE UPDATE ON responsaveis
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();
+
+CREATE TRIGGER set_timestamp
+BEFORE UPDATE ON setores
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();
+
+CREATE TRIGGER set_timestamp
+BEFORE UPDATE ON usuarios
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();
+
+CREATE TRIGGER set_timestamp
+BEFORE UPDATE ON permissoes
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();
