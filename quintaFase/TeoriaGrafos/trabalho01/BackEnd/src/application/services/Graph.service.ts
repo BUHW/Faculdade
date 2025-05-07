@@ -1,4 +1,5 @@
 import { GraphEntity } from "@src/domain/entities/Graph.entity";
+import { BuscarAtoresOutputDTO } from "@src/infra/controllers/dto/output/BuscarAtoresOutPutDTO";
 
 export class GraphService {
   constructor(
@@ -80,6 +81,24 @@ export class GraphService {
     }
 
     return resultados;
+  }
+
+  public BuscarAtores(): BuscarAtoresOutputDTO[] {
+    const atoresSet = new Set<string>();
+
+    for (const [vertice, vizinhos] of this.grafo.listaAdjacente.entries()) {
+      if (this.tipoDoVertice(vertice) === 'filme') {
+        for (const vizinho of vizinhos) {
+          if (this.tipoDoVertice(vizinho) === 'ator') {
+            atoresSet.add(vizinho);
+          }
+        }
+      }
+    }
+
+    return Array.from(atoresSet).map(ator => ({
+      nome: ator
+    }));
   }
 
   public getTipoMapa(): Record<string, 'ator' | 'filme'> {
