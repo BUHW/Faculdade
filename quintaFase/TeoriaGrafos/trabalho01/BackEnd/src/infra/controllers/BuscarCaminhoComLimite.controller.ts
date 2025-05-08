@@ -69,7 +69,8 @@ export class BuscarCaminhosComLimiteController {
                 );
 
                 res.status(200).json({
-                    caminhos: caminhosComTipo
+                    caminhos: caminhosComTipo,
+                    tamanho: resultados.length,
                 });
             });
 

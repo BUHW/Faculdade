@@ -27,6 +27,8 @@ export default function SelectItens({ label, value, onChange }) {
             <MenuItem value={80}>80</MenuItem>
             <MenuItem value={90}>90</MenuItem>
             <MenuItem value={100}>100</MenuItem>
+            <MenuItem value={200}>200</MenuItem>
+            <MenuItem value={300}>300</MenuItem>
           </Select>
         </FormControl>
       </Box>
