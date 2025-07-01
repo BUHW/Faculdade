@@ -25,7 +25,9 @@ function dijkstra(graph, start, end, fuelPrice, autonomy) {
     for (const neighbor in neighbors) {
       const distance = neighbors[neighbor];
       const fuelCost = (distance / autonomy) * fuelPrice;
-      const toll = (graph.adjacencyList[neighbor]?.toll || 0);
+
+      const toll = (neighbor !== start && neighbor !== end) ? (graph.adjacencyList[neighbor]?.toll || 0) : 0;
+
       const totalCost = currentCost + fuelCost + toll;
 
       if (totalCost < distances[neighbor]) {
