@@ -5,6 +5,7 @@ const cookieParser = require("cookie-parser");
 const config = require('./config.json')
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
+const sequelize = require('./utils/database_postgres');
 
 app.use(express.json());
 app.use(cors());
@@ -47,6 +48,15 @@ const url = '/api';
 const routes = require('./api/index');
 app.use(url + '/daw', routes);
 
-app.listen(config.PORT, () => {
-    console.log(`Servidor rodando na porta ${config.PORT}`);
-})
+(async () => {
+  try {
+      await sequelize.sync({ alter: true });
+      console.log('Banco de dados sincronizado com sucesso!');
+      
+      app.listen(config.PORT, () => {
+          console.log(`Servidor rodando na porta ${config.PORT}`);
+      });
+  } catch (error) {
+      console.error('Erro ao sincronizar o banco de dados:', error);
+  }
+})();
