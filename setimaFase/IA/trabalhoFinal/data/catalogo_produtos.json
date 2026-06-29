@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "description": "Catalogo simulado para o chatbot de loja de tecnologia.",
+    "currency": "BRL",
+    "updated_at": "2026-06-29"
+  },
+  "products": [
+    {
+      "id": "notebook_macbook_pro_14_m3",
+      "name": "MacBook Pro 14 M3",
+      "category": "notebook",
+      "brand": "Apple",
+      "price": 12999.0,
+      "stock": "sob encomenda",
+      "specs": "Apple M3, 16 GB RAM, SSD 512 GB, tela 14 polegadas",
+      "aliases": ["macbook pro", "macbook", "notebook apple", "apple macbook"]
+    },
+    {
+      "id": "notebook_dell_inspiron_15",
+      "name": "Dell Inspiron 15",
+      "category": "notebook",
+      "brand": "Dell",
+      "price": 3899.0,
+      "stock": "em estoque",
+      "specs": "Intel Core i5, 8 GB RAM, SSD 512 GB, tela 15.6 polegadas",
+      "aliases": ["dell inspiron", "inspiron 15", "notebook dell"]
+    },
+    {
+      "id": "notebook_lenovo_ideapad_3",
+      "name": "Lenovo IdeaPad 3",
+      "category": "notebook",
+      "brand": "Lenovo",
+      "price": 2999.0,
+      "stock": "em estoque",
+      "specs": "AMD Ryzen 5, 8 GB RAM, SSD 256 GB, tela 15.6 polegadas",
+      "aliases": ["lenovo ideapad", "ideapad 3", "notebook lenovo"]
+    },
+    {
+      "id": "notebook_acer_nitro_5",
+      "name": "Acer Nitro 5",
+      "category": "notebook",
+      "brand": "Acer",
+      "price": 5199.0,
+      "stock": "em estoque",
+      "specs": "Intel Core i5, 16 GB RAM, SSD 512 GB, placa de video dedicada",
+      "aliases": ["acer nitro", "nitro 5", "notebook gamer"]
+    },
+    {
+      "id": "celular_iphone_15",
+      "name": "iPhone 15",
+      "category": "celular",
+      "brand": "Apple",
+      "price": 5299.0,
+      "stock": "em estoque",
+      "specs": "128 GB, tela 6.1 polegadas, camera dupla",
+      "aliases": ["iphone 15", "iphone", "celular apple"]
+    },
+    {
+      "id": "celular_galaxy_s24",
+      "name": "Samsung Galaxy S24",
+      "category": "celular",
+      "brand": "Samsung",
+      "price": 4599.0,
+      "stock": "em estoque",
+      "specs": "256 GB, 8 GB RAM, tela AMOLED 6.2 polegadas",
+      "aliases": ["galaxy s24", "s24", "samsung s24", "celular samsung"]
+    },
+    {
+      "id": "celular_motorola_edge_40",
+      "name": "Motorola Edge 40",
+      "category": "celular",
+      "brand": "Motorola",
+      "price": 2499.0,
+      "stock": "em estoque",
+      "specs": "256 GB, 8 GB RAM, tela OLED 6.55 polegadas",
+      "aliases": ["motorola edge", "edge 40", "celular motorola"]
+    },
+    {
+      "id": "monitor_lg_24",
+      "name": "Monitor LG 24 IPS",
+      "category": "monitor",
+      "brand": "LG",
+      "price": 749.0,
+      "stock": "em estoque",
+      "specs": "24 polegadas, Full HD, painel IPS, HDMI",
+      "aliases": ["monitor lg", "monitor 24", "monitor full hd"]
+    },
+    {
+      "id": "teclado_logitech_mk345",
+      "name": "Kit Teclado e Mouse Logitech MK345",
+      "category": "acessorio",
+      "brand": "Logitech",
+      "price": 219.0,
+      "stock": "em estoque",
+      "specs": "kit sem fio com teclado ABNT2 e mouse optico",
+      "aliases": ["teclado logitech", "mouse logitech", "kit teclado mouse"]
+    },
+    {
+      "id": "roteador_tplink_archer_c6",
+      "name": "Roteador TP-Link Archer C6",
+      "category": "roteador",
+      "brand": "TP-Link",
+      "price": 299.0,
+      "stock": "em estoque",
+      "specs": "dual band AC1200, 4 antenas, portas gigabit",
+      "aliases": ["roteador tp-link", "archer c6", "roteador wifi"]
+    }
+  ]
+}
+

@@ -1,0 +1,1244 @@
+{
+    "metadata":  {
+                     "source":  {
+                                    "dataset":  "clips/mfaq",
+                                    "split":  "train",
+                                    "huggingface_url":  "https://huggingface.co/datasets/clips/mfaq",
+                                    "name":  "MFAQ: a Multilingual FAQ Dataset",
+                                    "paper_url":  "https://arxiv.org/abs/2109.12870",
+                                    "config":  "pt_flat"
+                                },
+                     "method":  "Perguntas em portugues foram buscadas no MFAQ por palavras-chave de tecnologia e atendimento. As respostas foram normalizadas para politicas simuladas de uma loja de tecnologia.",
+                     "project":  "Chatbot Inteligente para Atendimento de Loja de Tecnologia",
+                     "intents":  [
+                                     "canal_atendimento",
+                                     "formas_pagamento",
+                                     "garantia",
+                                     "horario_atendimento",
+                                     "prazo_entrega",
+                                     "produtos_disponiveis",
+                                     "suporte_tecnico",
+                                     "troca_devolucao"
+                                 ],
+                     "generated_at":  "2026-06-29",
+                     "record_count":  64
+                 },
+    "faqs":  [
+                 {
+                     "source_row":  {
+                                        "pair_id":  2,
+                                        "language":  "pt",
+                                        "domain_id":  12858297
+                                    },
+                     "id":  "mfaq_pt_produtos_disponiveis_12858297_2",
+                     "source_domain":  "cupoom.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "Há cupons de desconto Acer válidos em Janeiro 2021?",
+                     "tags":  [
+                                  "produtos disponiveis",
+                                  "notebook"
+                              ],
+                     "intent":  "produtos_disponiveis",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Atendemos consultas sobre notebooks, computadores, celulares, monitores, teclados, mouses, webcams, roteadores e acessorios. Para estoque e modelos exatos, informe o produto desejado.",
+                     "source_answer":  "Agora, esses são os cupons ou ofertas válidos para Acer: Economize R$600 na hora de comprar Notebook Gamer Acer Nitro 5R$400 de desconto Notebook Gamer Aspire Nitro 5Desconto de R$700 para comprar notebook Acer"
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  0,
+                                        "language":  "pt",
+                                        "domain_id":  20934288
+                                    },
+                     "id":  "mfaq_pt_produtos_disponiveis_20934288_0",
+                     "source_domain":  "daazcavernas.com",
+                     "source_config":  "pt_flat",
+                     "question":  "❓ Segundo Ciclo Notebook tem Cupom de Desconto?",
+                     "tags":  [
+                                  "produtos disponiveis",
+                                  "notebook"
+                              ],
+                     "intent":  "produtos_disponiveis",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Atendemos consultas sobre notebooks, computadores, celulares, monitores, teclados, mouses, webcams, roteadores e acessorios. Para estoque e modelos exatos, informe o produto desejado.",
+                     "source_answer":  "Sim, a Segundo Ciclo Notebook tem Cupom de Desconto, temos 0 cupons de desconto que estão ativos neste momento."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  3,
+                                        "language":  "pt",
+                                        "domain_id":  20934288
+                                    },
+                     "id":  "mfaq_pt_produtos_disponiveis_20934288_3",
+                     "source_domain":  "daazcavernas.com",
+                     "source_config":  "pt_flat",
+                     "question":  "Como Economizar na loja Segundo Ciclo Notebook?",
+                     "tags":  [
+                                  "produtos disponiveis",
+                                  "notebook"
+                              ],
+                     "intent":  "produtos_disponiveis",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Atendemos consultas sobre notebooks, computadores, celulares, monitores, teclados, mouses, webcams, roteadores e acessorios. Para estoque e modelos exatos, informe o produto desejado.",
+                     "source_answer":  "Economize por meio do DaazCavernas, utilize nossos cupons de desconto para economizar na Segundo Ciclo Notebook. Escolha a melhor oferta e aplique o cupom em sua compra.Acompanhe também a Segundo Ciclo Notebook nas redes sociais e fique ligado em datas especiais, como: Dia das mães, Aniversário Segundo Ciclo Notebook, Dia dos pais, Natal, Dia das crianças, Black Friday, Cyber Monday, Páscoa, Carnaval, Volta às Aulas, Dia do Cliente, Dia do consumidor..."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  2,
+                                        "language":  "pt",
+                                        "domain_id":  20934288
+                                    },
+                     "id":  "mfaq_pt_produtos_disponiveis_20934288_2",
+                     "source_domain":  "daazcavernas.com",
+                     "source_config":  "pt_flat",
+                     "question":  "️ Quais os principais Cupons de Desconto Segundo Ciclo Notebook em Abril de 2021?",
+                     "tags":  [
+                                  "produtos disponiveis",
+                                  "notebook"
+                              ],
+                     "intent":  "produtos_disponiveis",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Atendemos consultas sobre notebooks, computadores, celulares, monitores, teclados, mouses, webcams, roteadores e acessorios. Para estoque e modelos exatos, informe o produto desejado.",
+                     "source_answer":  "Os principais cupons disponíveis na Segundo Ciclo Notebook: *confira mais cupons e descontos acessando o DaazCavernas.Sem ofertas no momento"
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  1,
+                                        "language":  "pt",
+                                        "domain_id":  20934288
+                                    },
+                     "id":  "mfaq_pt_produtos_disponiveis_20934288_1",
+                     "source_domain":  "daazcavernas.com",
+                     "source_config":  "pt_flat",
+                     "question":  "Como conseguir Cupom de Desconto Segundo Ciclo Notebook?",
+                     "tags":  [
+                                  "produtos disponiveis",
+                                  "notebook"
+                              ],
+                     "intent":  "produtos_disponiveis",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Atendemos consultas sobre notebooks, computadores, celulares, monitores, teclados, mouses, webcams, roteadores e acessorios. Para estoque e modelos exatos, informe o produto desejado.",
+                     "source_answer":  "Para conseguir nosso Cupom de desconto Segundo Ciclo Notebook, acesse o DaazCavernas, pegue o cupom desejado e vá para Segundo Ciclo Notebook, faça sua compra normalmente. Cole nosso Código de Desconto no campo: cupom, cupom de desconto, vale presente, código, código promocional. Pronto, seu desconto será aplicado antes de você finalizar a compra."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  2,
+                                        "language":  "pt",
+                                        "domain_id":  20312700
+                                    },
+                     "id":  "mfaq_pt_produtos_disponiveis_20312700_2",
+                     "source_domain":  "e-recovery.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "Como recuperar o HD do meu notebook?",
+                     "tags":  [
+                                  "produtos disponiveis",
+                                  "notebook"
+                              ],
+                     "intent":  "produtos_disponiveis",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Atendemos consultas sobre notebooks, computadores, celulares, monitores, teclados, mouses, webcams, roteadores e acessorios. Para estoque e modelos exatos, informe o produto desejado.",
+                     "source_answer":  "As causas mais comuns de perda de dados de HD de notebook são cabeça de leitura danificada ou bad blocks que aparecem após uma queda acidental. A solução é trocar a cabeça danificada ou clonar o HD em equipamento especial para bad blocks."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  1,
+                                        "language":  "pt",
+                                        "domain_id":  22478760
+                                    },
+                     "id":  "mfaq_pt_produtos_disponiveis_22478760_1",
+                     "source_domain":  "descontocupom.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "Há cupons de desconto Acer válidos em Maio 2021?",
+                     "tags":  [
+                                  "produtos disponiveis",
+                                  "notebook"
+                              ],
+                     "intent":  "produtos_disponiveis",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Atendemos consultas sobre notebooks, computadores, celulares, monitores, teclados, mouses, webcams, roteadores e acessorios. Para estoque e modelos exatos, informe o produto desejado.",
+                     "source_answer":  "Agora, esses são os cupons ou ofertas válidos para Acer: Ganhe R$700 com cupom na compra do Notebook Gamer Predator Helios 300Ganhe R$300 com cupom na compra do Notebook Gamer Predator Helios 300 Intel Core i7 16GB 512GB SSDGanhe R$300 com cupom na compra do Monitor Gamer Acer VG240Y FHD"
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  2,
+                                        "language":  "pt",
+                                        "domain_id":  1008745
+                                    },
+                     "id":  "mfaq_pt_produtos_disponiveis_1008745_2",
+                     "source_domain":  "precoatualizado.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "✅ Qual o Preço?",
+                     "tags":  [
+                                  "produtos disponiveis",
+                                  "notebook"
+                              ],
+                     "intent":  "produtos_disponiveis",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Atendemos consultas sobre notebooks, computadores, celulares, monitores, teclados, mouses, webcams, roteadores e acessorios. Para estoque e modelos exatos, informe o produto desejado.",
+                     "source_answer":  "O preço médio do(a) \"Mochila P/Notebook 15,6\u0027\u0027 Multilaser BO407 Preta e Marrom\" é R$ 76,33Podendo variar de R$ 58,41 até R$ 99,00, a depender da loja:"
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  0,
+                                        "language":  "pt",
+                                        "domain_id":  18506120
+                                    },
+                     "id":  "mfaq_pt_formas_pagamento_18506120_0",
+                     "source_domain":  "ecamisetas.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "1) Como criar Capa de Notebook Personalizada?",
+                     "tags":  [
+                                  "formas pagamento",
+                                  "pagamento notebook"
+                              ],
+                     "intent":  "formas_pagamento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "A loja trabalha com Pix, cartao de credito, cartao de debito e boleto. O parcelamento depende do valor da compra e das regras vigentes no momento do pedido.",
+                     "source_answer":  "Basta escolhar um modelo em nossa galeria de produtos, fazer o envio da sua foto ou imagem e clicar e criar. Depois disso é só efetuar o pagamento e aguardar em casa :)"
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  2,
+                                        "language":  "pt",
+                                        "domain_id":  16321923
+                                    },
+                     "id":  "mfaq_pt_formas_pagamento_16321923_2",
+                     "source_domain":  "daazcavernas.com",
+                     "source_config":  "pt_flat",
+                     "question":  "️ Quais os principais Cupons de Desconto 2AM Gaming em Fevereiro de 2021?",
+                     "tags":  [
+                                  "formas pagamento",
+                                  "pagamento notebook"
+                              ],
+                     "intent":  "formas_pagamento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "A loja trabalha com Pix, cartao de credito, cartao de debito e boleto. O parcelamento depende do valor da compra e das regras vigentes no momento do pedido.",
+                     "source_answer":  "Os principais cupons disponíveis na 2AM Gaming: *confira mais cupons e descontos acessando o DaazCavernas.Loja 2A.M ofertas com 7% Off pagando no boletoLoja 2A.M extreme Notebook 7% desconto pagamento a vista no boletoPromoção 2AM Gaming em até 10X"
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  1,
+                                        "language":  "pt",
+                                        "domain_id":  18506120
+                                    },
+                     "id":  "mfaq_pt_formas_pagamento_18506120_1",
+                     "source_domain":  "ecamisetas.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "2) Como funciona? Capa de Notebook Personalizada são duráveis?",
+                     "tags":  [
+                                  "formas pagamento",
+                                  "pagamento notebook"
+                              ],
+                     "intent":  "formas_pagamento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "A loja trabalha com Pix, cartao de credito, cartao de debito e boleto. O parcelamento depende do valor da compra e das regras vigentes no momento do pedido.",
+                     "source_answer":  "Sim, utilizamos técnicas que garantem a qualidade de impressão e alta durabilidade."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  10,
+                                        "language":  "pt",
+                                        "domain_id":  22636800
+                                    },
+                     "id":  "mfaq_pt_formas_pagamento_22636800_10",
+                     "source_domain":  "tudosobreprodutos.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "✅ Quais Aparelhos compatíveis do produto \"Kit Teclado e Mouse Sem Fio 2.4 Ghz Multilaser Multimídia Preto Usb – TC183\"?",
+                     "tags":  [
+                                  "formas pagamento",
+                                  "pagamento notebook"
+                              ],
+                     "intent":  "formas_pagamento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "A loja trabalha com Pix, cartao de credito, cartao de debito e boleto. O parcelamento depende do valor da compra e das regras vigentes no momento do pedido.",
+                     "source_answer":  "PC, Computador Notebook, SmatTvs"
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  11,
+                                        "language":  "pt",
+                                        "domain_id":  22636800
+                                    },
+                     "id":  "mfaq_pt_formas_pagamento_22636800_11",
+                     "source_domain":  "tudosobreprodutos.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "✅ Quais Equipamentos compatíveis do produto \"Teclado Mouse Sem Fio 2.4 Ghz Multimídia Slim USB Preto Multilaser\"?",
+                     "tags":  [
+                                  "formas pagamento",
+                                  "pagamento notebook"
+                              ],
+                     "intent":  "formas_pagamento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "A loja trabalha com Pix, cartao de credito, cartao de debito e boleto. O parcelamento depende do valor da compra e das regras vigentes no momento do pedido.",
+                     "source_answer":  "MAC, Windows, Tablet ou Android, PC e Notebook"
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  0,
+                                        "language":  "pt",
+                                        "domain_id":  6765656
+                                    },
+                     "id":  "mfaq_pt_formas_pagamento_6765656_0",
+                     "source_domain":  "websiteplanet.com",
+                     "source_config":  "pt_flat",
+                     "question":  "Como funciona o Verificador de design responsivo?",
+                     "tags":  [
+                                  "formas pagamento",
+                                  "pagamento notebook"
+                              ],
+                     "intent":  "formas_pagamento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "A loja trabalha com Pix, cartao de credito, cartao de debito e boleto. O parcelamento depende do valor da compra e das regras vigentes no momento do pedido.",
+                     "source_answer":  "Basta digitar a URL do seu site e clicar em ‘Testar meu site’. Nossa ferramenta se encarregará do resto. Você pode escolher o tipo de dispositivo desejado a partir de uma lista de dispositivos populares – incluindo iPhone X, iPhone 8, iPad, Samsung Galaxy S7, Kindle Fire e notebook de 14” notebook – ou selecionar a guia ‘Todos os dispositivos’ para escolher a partir de diferentes resoluções de dispositivos móveis, tablets e dispositivos desktop."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  4,
+                                        "language":  "pt",
+                                        "domain_id":  20934288
+                                    },
+                     "id":  "mfaq_pt_formas_pagamento_20934288_4",
+                     "source_domain":  "daazcavernas.com",
+                     "source_config":  "pt_flat",
+                     "question":  "Como conseguir Descontos na Segundo Ciclo Notebook?",
+                     "tags":  [
+                                  "formas pagamento",
+                                  "pagamento notebook"
+                              ],
+                     "intent":  "formas_pagamento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "A loja trabalha com Pix, cartao de credito, cartao de debito e boleto. O parcelamento depende do valor da compra e das regras vigentes no momento do pedido.",
+                     "source_answer":  "Diversos Descontos são disponibilizados diariamente no DaazCavernas. Seja membro de nossa comunidade, acesse nosso portal, redes sociais ou assine nossa newsletter."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  1,
+                                        "language":  "pt",
+                                        "domain_id":  11897059
+                                    },
+                     "id":  "mfaq_pt_formas_pagamento_11897059_1",
+                     "source_domain":  "descontocupom.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "Há cupons de desconto Fast Shop válidos em Dezembro 2020?",
+                     "tags":  [
+                                  "formas pagamento",
+                                  "pagamento notebook"
+                              ],
+                     "intent":  "formas_pagamento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "A loja trabalha com Pix, cartao de credito, cartao de debito e boleto. O parcelamento depende do valor da compra e das regras vigentes no momento do pedido.",
+                     "source_answer":  "Agora, esses são os cupons ou ofertas válidos para Fast Shop: Cupom de 5% de desconto em EletrodomésticosGanhe RS1000 OFF em Notebook S51 Pro SamsungCompre online e Receba rápido em casa"
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  0,
+                                        "language":  "pt",
+                                        "domain_id":  21116469
+                                    },
+                     "id":  "mfaq_pt_prazo_entrega_21116469_0",
+                     "source_domain":  "tripadvisor.pt",
+                     "source_config":  "pt_flat",
+                     "question":  "O Andy\u0027s Frozen Custard disponibiliza serviços de entrega?",
+                     "tags":  [
+                                  "prazo entrega",
+                                  "entrega notebook"
+                              ],
+                     "intent":  "prazo_entrega",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O prazo de entrega depende do CEP, disponibilidade do produto e modalidade de frete. Em uma simulacao de atendimento, o cliente deve informar o CEP para estimativa.",
+                     "source_answer":  "Sim, o Andy\u0027s Frozen Custard disponibiliza serviços de entrega."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  3,
+                                        "language":  "pt",
+                                        "domain_id":  5296634
+                                    },
+                     "id":  "mfaq_pt_prazo_entrega_5296634_3",
+                     "source_domain":  "euamocupons.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "As lojas Marabraz demora na entrega?",
+                     "tags":  [
+                                  "prazo entrega",
+                                  "entrega notebook"
+                              ],
+                     "intent":  "prazo_entrega",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O prazo de entrega depende do CEP, disponibilidade do produto e modalidade de frete. Em uma simulacao de atendimento, o cliente deve informar o CEP para estimativa.",
+                     "source_answer":  "Depende bastante da sua localidade.Por ter estoques por todo o Brasil, a entrega acaba sendo beneficiada. Uma vez que você pagou pelo produto, ele imediatamente é embalado para ficar a disposição do setor de entrega."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  3,
+                                        "language":  "pt",
+                                        "domain_id":  12100160
+                                    },
+                     "id":  "mfaq_pt_prazo_entrega_12100160_3",
+                     "source_domain":  "ubereats.com",
+                     "source_config":  "pt_flat",
+                     "question":  "Posso agendar uma entrega de KFC pelo Uber Eats?",
+                     "tags":  [
+                                  "prazo entrega",
+                                  "entrega notebook"
+                              ],
+                     "intent":  "prazo_entrega",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O prazo de entrega depende do CEP, disponibilidade do produto e modalidade de frete. Em uma simulacao de atendimento, o cliente deve informar o CEP para estimativa.",
+                     "source_answer":  "Você pode fazer o pedido pelo Uber Eats e agendar a entrega para mais tarde. Confira se é possível agendar a entrega de KFC na sua cidade, Belo Horizonte, no horário que você quer."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  1,
+                                        "language":  "pt",
+                                        "domain_id":  20871018
+                                    },
+                     "id":  "mfaq_pt_prazo_entrega_20871018_1",
+                     "source_domain":  "ubereats.com",
+                     "source_config":  "pt_flat",
+                     "question":  "O McDonald\u0027s faz entregas na minha área?",
+                     "tags":  [
+                                  "prazo entrega",
+                                  "entrega notebook"
+                              ],
+                     "intent":  "prazo_entrega",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O prazo de entrega depende do CEP, disponibilidade do produto e modalidade de frete. Em uma simulacao de atendimento, o cliente deve informar o CEP para estimativa.",
+                     "source_answer":  "Introduza o seu endereço de entrega para confirmar se algum McDonald\u0027s em Lisboa no Uber Eats oferece a opção de entrega."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  15,
+                                        "language":  "pt",
+                                        "domain_id":  1100327
+                                    },
+                     "id":  "mfaq_pt_prazo_entrega_1100327_15",
+                     "source_domain":  "volumem.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "Qual é o prazo de entrega do volumen caps?",
+                     "tags":  [
+                                  "prazo entrega",
+                                  "entrega notebook"
+                              ],
+                     "intent":  "prazo_entrega",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O prazo de entrega depende do CEP, disponibilidade do produto e modalidade de frete. Em uma simulacao de atendimento, o cliente deve informar o CEP para estimativa.",
+                     "source_answer":  "O prazo médio de entrega do Volumen para o Brasil é de até 10 dias úteis. Em 90% dos casos a entrega é realizada antes de 7 dias. O produto só é enviado após a confirmação do seu pagamento pela administradora do seu cartão de crédito ou após a confirmação de pagamento do boleto."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  16,
+                                        "language":  "pt",
+                                        "domain_id":  1162608
+                                    },
+                     "id":  "mfaq_pt_prazo_entrega_1162608_16",
+                     "source_domain":  "volumem.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "Qual é o prazo de entrega do Mam caps ?",
+                     "tags":  [
+                                  "prazo entrega",
+                                  "entrega notebook"
+                              ],
+                     "intent":  "prazo_entrega",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O prazo de entrega depende do CEP, disponibilidade do produto e modalidade de frete. Em uma simulacao de atendimento, o cliente deve informar o CEP para estimativa.",
+                     "source_answer":  "O prazo médio de entrega do Mam caps para o Brasil é de até 10 dias úteis. Em 90% dos casos a entrega é realizada antes de 7 dias. O produto só é enviado após a confirmação do seu pagamento pela administradora do seu cartão de crédito ou após a confirmação de pagamento do boleto."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  10,
+                                        "language":  "pt",
+                                        "domain_id":  23605787
+                                    },
+                     "id":  "mfaq_pt_prazo_entrega_23605787_10",
+                     "source_domain":  "seguidores.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "Quanto tempo leva para iniciar a entrega dos meus seguidores Instagram?",
+                     "tags":  [
+                                  "prazo entrega",
+                                  "entrega notebook"
+                              ],
+                     "intent":  "prazo_entrega",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O prazo de entrega depende do CEP, disponibilidade do produto e modalidade de frete. Em uma simulacao de atendimento, o cliente deve informar o CEP para estimativa.",
+                     "source_answer":  "Primeiro aguardaremos a confirmação do seu pagamento.Após essa confirmação o sistema iniciará a entrega dos seguidores, que geralmente inicia em 1 minuto, mas você também pode optar por deixar a entrega iniciar após 5 minutos até 1 hora após o pagamento ser confirmado."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  16,
+                                        "language":  "pt",
+                                        "domain_id":  989376
+                                    },
+                     "id":  "mfaq_pt_prazo_entrega_989376_16",
+                     "source_domain":  "volumem.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "Qual é o prazo de entrega do Power man caps ?",
+                     "tags":  [
+                                  "prazo entrega",
+                                  "entrega notebook"
+                              ],
+                     "intent":  "prazo_entrega",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O prazo de entrega depende do CEP, disponibilidade do produto e modalidade de frete. Em uma simulacao de atendimento, o cliente deve informar o CEP para estimativa.",
+                     "source_answer":  "O prazo médio de entrega do Power man caps para o Brasil é de até 10 dias úteis. Em 90% dos casos a entrega é realizada antes de 7 dias. O produto só é enviado após a confirmação do seu pagamento pela administradora do seu cartão de crédito ou após a confirmação de pagamento do boleto."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  2,
+                                        "language":  "pt",
+                                        "domain_id":  19694626
+                                    },
+                     "id":  "mfaq_pt_garantia_19694626_2",
+                     "source_domain":  "daazcavernas.com",
+                     "source_config":  "pt_flat",
+                     "question":  "️ Quais os principais Cupons de Desconto ASUS em Abril de 2021?",
+                     "tags":  [
+                                  "garantia",
+                                  "garantia notebook"
+                              ],
+                     "intent":  "garantia",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Produtos de tecnologia possuem garantia conforme fabricante e nota fiscal. Se o item apresentar defeito, informe numero do pedido, data da compra e descricao do problema.",
+                     "source_answer":  "Os principais cupons disponíveis na ASUS: *confira mais cupons e descontos acessando o DaazCavernas.Loja Asus promoção Zenfone até 30% descontoLoja Asus oferta Notebook com até 30% OFFLoja ASUS promoção em até 12X"
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  1,
+                                        "language":  "pt",
+                                        "domain_id":  18572353
+                                    },
+                     "id":  "mfaq_pt_garantia_18572353_1",
+                     "source_domain":  "descontocupom.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "Há cupons de desconto Americanas válidos em Abril 2021?",
+                     "tags":  [
+                                  "garantia",
+                                  "garantia notebook"
+                              ],
+                     "intent":  "garantia",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Produtos de tecnologia possuem garantia conforme fabricante e nota fiscal. Se o item apresentar defeito, informe numero do pedido, data da compra e descricao do problema.",
+                     "source_answer":  "Agora, esses são os cupons ou ofertas válidos para Americanas: Cupom de R$100 de desconto em notebook DellCupom de 15% OFF em seleção de itens CicatricureGanhe 20% de desconto em seleção de itens Revie"
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  1,
+                                        "language":  "pt",
+                                        "domain_id":  16545241
+                                    },
+                     "id":  "mfaq_pt_garantia_16545241_1",
+                     "source_domain":  "descontocupom.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "Há cupons de desconto Adorama válidos em Março 2021?",
+                     "tags":  [
+                                  "garantia",
+                                  "garantia notebook"
+                              ],
+                     "intent":  "garantia",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Produtos de tecnologia possuem garantia conforme fabricante e nota fiscal. Se o item apresentar defeito, informe numero do pedido, data da compra e descricao do problema.",
+                     "source_answer":  "Agora, esses são os cupons ou ofertas válidos para Adorama: Ganhe $200 de desconto em Notebook Microsoft Surface Book 2 Ganhe $80 de desconto em Monitores LG Ganhe até $900 de desconto em Câmeras Nikon"
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  0,
+                                        "language":  "pt",
+                                        "domain_id":  12577698
+                                    },
+                     "id":  "mfaq_pt_garantia_12577698_0",
+                     "source_domain":  "vpnmentor.com",
+                     "source_config":  "pt_flat",
+                     "question":  "? Faz diferença se eu preciso de uma VPN para notebook ou desktop?",
+                     "tags":  [
+                                  "garantia",
+                                  "garantia notebook"
+                              ],
+                     "intent":  "garantia",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Produtos de tecnologia possuem garantia conforme fabricante e nota fiscal. Se o item apresentar defeito, informe numero do pedido, data da compra e descricao do problema.",
+                     "source_answer":  "Ao escolher uma VPN para seu computador, não importa qual seja seu dispositivo. As VPNs para Windows que recomendamos acima disponibilizam clientes leves e fáceis de usar – e que funcionam perfeitamente em notebooks e desktops."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  2,
+                                        "language":  "pt",
+                                        "domain_id":  14636017
+                                    },
+                     "id":  "mfaq_pt_garantia_14636017_2",
+                     "source_domain":  "daazcavernas.com",
+                     "source_config":  "pt_flat",
+                     "question":  "️ Quais os principais Cupons de Desconto BB Baterias em Janeiro de 2021?",
+                     "tags":  [
+                                  "garantia",
+                                  "garantia notebook"
+                              ],
+                     "intent":  "garantia",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Produtos de tecnologia possuem garantia conforme fabricante e nota fiscal. Se o item apresentar defeito, informe numero do pedido, data da compra e descricao do problema.",
+                     "source_answer":  "Os principais cupons disponíveis na BB Baterias: *confira mais cupons e descontos acessando o DaazCavernas.Loja BB Baterias oferta com até 50% descontoPromoção BB Baterias toda loja em até 10xLoja BB Baterias oferta baterias notebook até 48% desconto"
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  2,
+                                        "language":  "pt",
+                                        "domain_id":  13487643
+                                    },
+                     "id":  "mfaq_pt_garantia_13487643_2",
+                     "source_domain":  "daazcavernas.com",
+                     "source_config":  "pt_flat",
+                     "question":  "️ Quais os principais Cupons de Desconto Sou Barato em Janeiro de 2021?",
+                     "tags":  [
+                                  "garantia",
+                                  "garantia notebook"
+                              ],
+                     "intent":  "garantia",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Produtos de tecnologia possuem garantia conforme fabricante e nota fiscal. Se o item apresentar defeito, informe numero do pedido, data da compra e descricao do problema.",
+                     "source_answer":  "Os principais cupons disponíveis na Sou Barato: *confira mais cupons e descontos acessando o DaazCavernas.Loja Sou Barato Notebook até 20% descontoLoja Sou Barato Perfumaria e Cosméticos até 70% OffSite Sou Barato promoção até 50% desconto em produtos de Beleza"
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  21,
+                                        "language":  "pt",
+                                        "domain_id":  5526552
+                                    },
+                     "id":  "mfaq_pt_garantia_5526552_21",
+                     "source_domain":  "bosch-diy.com",
+                     "source_config":  "pt_flat",
+                     "question":  "Como posso imprimir o meu certificado de garantia?",
+                     "tags":  [
+                                  "garantia",
+                                  "garantia notebook"
+                              ],
+                     "intent":  "garantia",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Produtos de tecnologia possuem garantia conforme fabricante e nota fiscal. Se o item apresentar defeito, informe numero do pedido, data da compra e descricao do problema.",
+                     "source_answer":  "Encontras o certificado de garantia em MyBosch em \"Minhas ferramentas\" e depois clicar em \"Prolongamentos da garantia\". Se clicares na respetiva ferramenta, acedes diretamente ao certificado de garantia. O documento PDF é aberto automaticamente e podes imprimir o certificado de garantia."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  9,
+                                        "language":  "pt",
+                                        "domain_id":  19638472
+                                    },
+                     "id":  "mfaq_pt_garantia_19638472_9",
+                     "source_domain":  "bora.com",
+                     "source_config":  "pt_flat",
+                     "question":  "11. Qual a duração da garantia dos meus aparelhos BORA?",
+                     "tags":  [
+                                  "garantia",
+                                  "garantia notebook"
+                              ],
+                     "intent":  "garantia",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Produtos de tecnologia possuem garantia conforme fabricante e nota fiscal. Se o item apresentar defeito, informe numero do pedido, data da compra e descricao do problema.",
+                     "source_answer":  "A garantia do fabricante dura 2 anos. Após esse período, oferecemos a possibilidade de prolongar a garantia."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  6,
+                                        "language":  "pt",
+                                        "domain_id":  10705693
+                                    },
+                     "id":  "mfaq_pt_troca_devolucao_10705693_6",
+                     "source_domain":  "foregon.com",
+                     "source_config":  "pt_flat",
+                     "question":  "É possível trocar um produto que foi comprado na Black Friday 2020?",
+                     "tags":  [
+                                  "troca devolucao",
+                                  "troca produto"
+                              ],
+                     "intent":  "troca_devolucao",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Trocas e devolucoes seguem a politica da loja e o Codigo de Defesa do Consumidor. Informe numero do pedido, produto e motivo para abertura da solicitacao.",
+                     "source_answer":  "Você pode trocar o item que você comprou na Black Friday 2020, desde que respeite a política de devolução e troca da loja."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  2,
+                                        "language":  "pt",
+                                        "domain_id":  10250260
+                                    },
+                     "id":  "mfaq_pt_troca_devolucao_10250260_2",
+                     "source_domain":  "ispsaude.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "Quais as vantagens que esta cadeira oferece?",
+                     "tags":  [
+                                  "troca devolucao",
+                                  "troca produto"
+                              ],
+                     "intent":  "troca_devolucao",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Trocas e devolucoes seguem a politica da loja e o Codigo de Defesa do Consumidor. Informe numero do pedido, produto e motivo para abertura da solicitacao.",
+                     "source_answer":  "Sistema de desmontagem rápida com sistema \u0027quick release\u0027, que permite fácil armazenagem e transporte do produto. Apresenta vários ângulos de inclinação que proporcionam maior conforto e a possibilidade de troca de posições ao longo do dia."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  8,
+                                        "language":  "pt",
+                                        "domain_id":  13302530
+                                    },
+                     "id":  "mfaq_pt_troca_devolucao_13302530_8",
+                     "source_domain":  "vario.sg",
+                     "source_config":  "pt_flat",
+                     "question":  "Encomendei o produto errado. Posso devolvê-lo para troca ou obter um reembolso?",
+                     "tags":  [
+                                  "troca devolucao",
+                                  "troca produto"
+                              ],
+                     "intent":  "troca_devolucao",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Trocas e devolucoes seguem a politica da loja e o Codigo de Defesa do Consumidor. Informe numero do pedido, produto e motivo para abertura da solicitacao.",
+                     "source_answer":  "Todos os nossos produtos têm garantia de satisfação. Se por algum motivo você não estiver satisfeito ao receber seu produto, envie-nos um e-mail dentro de 30 dias para customer_service@vario.sgNo seu e-mail, inclua Seu nome e número do pedidoRetorno para Crédito da Loja ou TrocaNome dos itens com os quais não está satisfeito. Se trocar, especifique o produto que deseja receber Normalmente responderemos em 2 dias úteis e podemos coordenar um crédito ou troca na loja. A satisfação do cliente é a nossa principal prioridade e pretendemos ter um cliente de retorno feliz. * Os itens devolvidos não d"
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  30,
+                                        "language":  "pt",
+                                        "domain_id":  13302530
+                                    },
+                     "id":  "mfaq_pt_troca_devolucao_13302530_30",
+                     "source_domain":  "vario.sg",
+                     "source_config":  "pt_flat",
+                     "question":  "Seus adaptadores Nato não cabem no meu relógio. Posso trocá-lo por outro produto ou obter um reembolso?",
+                     "tags":  [
+                                  "troca devolucao",
+                                  "troca produto"
+                              ],
+                     "intent":  "troca_devolucao",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Trocas e devolucoes seguem a politica da loja e o Codigo de Defesa do Consumidor. Informe numero do pedido, produto e motivo para abertura da solicitacao.",
+                     "source_answer":  "O adaptador que vendemos se encaixa em muitos G-Shocks, mas não em todos os modelos. Verifique os modelos listados aqui. Também listamos os modelos G-Shock nas páginas do produto para compatibilidade. Se você não tiver certeza sobre a compatibilidade deste item com seu relógio ou produto, envie-nos um e-mail para customer_service@vario.sg e ficaremos felizes em ajudar com nosso melhor conhecimento. Qualquer devolução ou troca deve estar em estado novo, sem uso e na embalagem original para ser elegível para devolução. Quaisquer adaptadores cortados, danificados ou riscados não serão reembolsáve"
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  3,
+                                        "language":  "pt",
+                                        "domain_id":  10427402
+                                    },
+                     "id":  "mfaq_pt_troca_devolucao_10427402_3",
+                     "source_domain":  "cuponeria.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "Como funciona o vale compra da Qualitá?",
+                     "tags":  [
+                                  "troca devolucao",
+                                  "troca produto"
+                              ],
+                     "intent":  "troca_devolucao",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Trocas e devolucoes seguem a politica da loja e o Codigo de Defesa do Consumidor. Informe numero do pedido, produto e motivo para abertura da solicitacao.",
+                     "source_answer":  "O vale compra da Qualitá é uma opção de troca bastante fácil. Com validade de 1 ano e intransferível, o valor pago pelo produto retorna como crédito no site, podendo ser utilizado para comprar qualquer outro item disponível."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  2,
+                                        "language":  "pt",
+                                        "domain_id":  15518032
+                                    },
+                     "id":  "mfaq_pt_troca_devolucao_15518032_2",
+                     "source_domain":  "ispsaude.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "É necessário o uso de chaves para a troca do acrílico?",
+                     "tags":  [
+                                  "troca devolucao",
+                                  "troca produto"
+                              ],
+                     "intent":  "troca_devolucao",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Trocas e devolucoes seguem a politica da loja e o Codigo de Defesa do Consumidor. Informe numero do pedido, produto e motivo para abertura da solicitacao.",
+                     "source_answer":  "Não, pois os parafusos para troca das placas de acrílico dispensam uso de chaves."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  2,
+                                        "language":  "pt",
+                                        "domain_id":  12720353
+                                    },
+                     "id":  "mfaq_pt_troca_devolucao_12720353_2",
+                     "source_domain":  "ispsaude.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "Como realizar a troca de essência no equipamento?",
+                     "tags":  [
+                                  "troca devolucao",
+                                  "troca produto"
+                              ],
+                     "intent":  "troca_devolucao",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Trocas e devolucoes seguem a politica da loja e o Codigo de Defesa do Consumidor. Informe numero do pedido, produto e motivo para abertura da solicitacao.",
+                     "source_answer":  "Para realizar a troca de essência, é necessário lavar a esponja com água corrente até que todo aroma anterior seja neutralizado."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  3,
+                                        "language":  "pt",
+                                        "domain_id":  11900408
+                                    },
+                     "id":  "mfaq_pt_troca_devolucao_11900408_3",
+                     "source_domain":  "cuponeria.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "Como funciona o vale compra da Fast Shop?",
+                     "tags":  [
+                                  "troca devolucao",
+                                  "troca produto"
+                              ],
+                     "intent":  "troca_devolucao",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Trocas e devolucoes seguem a politica da loja e o Codigo de Defesa do Consumidor. Informe numero do pedido, produto e motivo para abertura da solicitacao.",
+                     "source_answer":  "O vale compra da Fast Shop é uma opção de troca bastante fácil. Com validade de 1 ano e intransferível, o valor pago pelo produto retorna como crédito no site, podendo ser utilizado para comprar qualquer outro item disponível."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  3,
+                                        "language":  "pt",
+                                        "domain_id":  7945081
+                                    },
+                     "id":  "mfaq_pt_suporte_tecnico_7945081_3",
+                     "source_domain":  "cartoriolocal.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "? Qual o prazo do dono da obra em caso de vício ou defeito na construção?",
+                     "tags":  [
+                                  "suporte tecnico",
+                                  "defeito notebook"
+                              ],
+                     "intent":  "suporte_tecnico",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Para suporte tecnico, descreva o produto, o erro apresentado e os testes ja realizados. Quando necessario, o atendimento encaminha para assistencia tecnica ou garantia.",
+                     "source_answer":  "O dono da obra tem o prazo de 180 dias a contar do aparecimento do vício ou defeito de execução para promover ação judicial em face do empreiteiro."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  31,
+                                        "language":  "pt",
+                                        "domain_id":  23388169
+                                    },
+                     "id":  "mfaq_pt_suporte_tecnico_23388169_31",
+                     "source_domain":  "uniqso.com",
+                     "source_config":  "pt_flat",
+                     "question":  "O que faço se receber um pedido com defeito?",
+                     "tags":  [
+                                  "suporte tecnico",
+                                  "defeito notebook"
+                              ],
+                     "intent":  "suporte_tecnico",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Para suporte tecnico, descreva o produto, o erro apresentado e os testes ja realizados. Quando necessario, o atendimento encaminha para assistencia tecnica ou garantia.",
+                     "source_answer":  "A troca é aplicável quando você recebe itens com defeito ou incorretos, envie-nos a foto dos itens recebidos e nós enviaremos a substituição com o método de envio original. A substituição por outro item de mesmo valor ou reembolso somente poderá ser feito se o mesmo item estiver fora de estoque."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  10,
+                                        "language":  "pt",
+                                        "domain_id":  22429866
+                                    },
+                     "id":  "mfaq_pt_suporte_tecnico_22429866_10",
+                     "source_domain":  "tudosobreprodutos.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "✅ Quais os prós e contras?",
+                     "tags":  [
+                                  "suporte tecnico",
+                                  "defeito notebook"
+                              ],
+                     "intent":  "suporte_tecnico",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Para suporte tecnico, descreva o produto, o erro apresentado e os testes ja realizados. Quando necessario, o atendimento encaminha para assistencia tecnica ou garantia.",
+                     "source_answer":  "Prós:Minha filha amouEntrega super rápidaOtimo produtoEntrega rápidaContras:Gostei muitoProduto de qualidadePelo preçoVeio com defeito"
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  32,
+                                        "language":  "pt",
+                                        "domain_id":  22433480
+                                    },
+                     "id":  "mfaq_pt_suporte_tecnico_22433480_32",
+                     "source_domain":  "tudosobreprodutos.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "✅ Qual o tempo de garantia do produto \"Pipoqueira Manual Tramontina Paris Alumínio 22cm Vermelho\"?",
+                     "tags":  [
+                                  "suporte tecnico",
+                                  "defeito notebook"
+                              ],
+                     "intent":  "suporte_tecnico",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Para suporte tecnico, descreva o produto, o erro apresentado e os testes ja realizados. Quando necessario, o atendimento encaminha para assistencia tecnica ou garantia.",
+                     "source_answer":  "12 Meses Contra Defeito de Fabricação, Contra Defeitos de Fabricação"
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  1,
+                                        "language":  "pt",
+                                        "domain_id":  16664182
+                                    },
+                     "id":  "mfaq_pt_suporte_tecnico_16664182_1",
+                     "source_domain":  "abri.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "Quais as principais reclamações sobre a Gazin?",
+                     "tags":  [
+                                  "suporte tecnico",
+                                  "defeito notebook"
+                              ],
+                     "intent":  "suporte_tecnico",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Para suporte tecnico, descreva o produto, o erro apresentado e os testes ja realizados. Quando necessario, o atendimento encaminha para assistencia tecnica ou garantia.",
+                     "source_answer":  "Entre as principais reclamações sobre a Gazin estão relatos sobre atraso na entrega, produtos com defeito, assistência técnica e produtos (eletrodomésticos, eletroeletrônicos, móveis, geladeiras, etc.)."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  40,
+                                        "language":  "pt",
+                                        "domain_id":  10964395
+                                    },
+                     "id":  "mfaq_pt_suporte_tecnico_10964395_40",
+                     "source_domain":  "tudosobreprodutos.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "✅ Qual o tempo de garantia do produto \"Lixeira Tramontina com Tampa Basculante 12 Litros Inox\"?",
+                     "tags":  [
+                                  "suporte tecnico",
+                                  "defeito notebook"
+                              ],
+                     "intent":  "suporte_tecnico",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Para suporte tecnico, descreva o produto, o erro apresentado e os testes ja realizados. Quando necessario, o atendimento encaminha para assistencia tecnica ou garantia.",
+                     "source_answer":  "12 Meses Contra Defeitos de Fabricação, 12 Meses, 3 Meses ou Defeitos de Fabricação, 3, 6 Meses Contra Defeito de Fabricação, Contra Defeitos de Fabricação"
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  0,
+                                        "language":  "pt",
+                                        "domain_id":  15302377
+                                    },
+                     "id":  "mfaq_pt_suporte_tecnico_15302377_0",
+                     "source_domain":  "cartoriolocal.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "? Como anular um contrato de confissão de dívida?",
+                     "tags":  [
+                                  "suporte tecnico",
+                                  "defeito notebook"
+                              ],
+                     "intent":  "suporte_tecnico",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Para suporte tecnico, descreva o produto, o erro apresentado e os testes ja realizados. Quando necessario, o atendimento encaminha para assistencia tecnica ou garantia.",
+                     "source_answer":  "Para anular um termo de confissão de dívida firmado entre as partes, deve-se comprovar a existência de algum defeito no negócio, como erro, coação, dolo ou fraude."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  2,
+                                        "language":  "pt",
+                                        "domain_id":  10915292
+                                    },
+                     "id":  "mfaq_pt_suporte_tecnico_10915292_2",
+                     "source_domain":  "hetmanrecovery.com",
+                     "source_config":  "pt_flat",
+                     "question":  "⏱️ Quanto tempo leva para recuperar meus dados?",
+                     "tags":  [
+                                  "suporte tecnico",
+                                  "defeito notebook"
+                              ],
+                     "intent":  "suporte_tecnico",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "Para suporte tecnico, descreva o produto, o erro apresentado e os testes ja realizados. Quando necessario, o atendimento encaminha para assistencia tecnica ou garantia.",
+                     "source_answer":  "A recuperação de dados pode demorar muito se você trabalhar com um disco maior que 1 terabyte. Unidades com defeito também podem ser verificadas por um longo tempo. No entanto, na maioria dos casos, a recuperação leva menos de 30 minutos."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  1,
+                                        "language":  "pt",
+                                        "domain_id":  5081521
+                                    },
+                     "id":  "mfaq_pt_canal_atendimento_5081521_1",
+                     "source_domain":  "take.net",
+                     "source_config":  "pt_flat",
+                     "question":  "Como fazer atendimento via WhatsApp?",
+                     "tags":  [
+                                  "canal atendimento",
+                                  "atendimento whatsapp"
+                              ],
+                     "intent":  "canal_atendimento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O atendimento simulado pode orientar por chat, telefone ou WhatsApp da loja. Para este projeto, a interacao pratica acontece pelo terminal.",
+                     "source_answer":  "O atendimento via WhatsApp pode ser feito pelo WhatsApp Business App, versão gratuita da plataforma e que permite apenas um atendente (ideal para pequenos negócios) e pelo WhatsApp Business API, versão para médias e grandes empresas e que permite vários atendentes no mesmo número."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  1,
+                                        "language":  "pt",
+                                        "domain_id":  6942344
+                                    },
+                     "id":  "mfaq_pt_canal_atendimento_6942344_1",
+                     "source_domain":  "melhorplano.net",
+                     "source_config":  "pt_flat",
+                     "question":  "Qual o número do WhatsApp da Claro?",
+                     "tags":  [
+                                  "canal atendimento",
+                                  "atendimento whatsapp"
+                              ],
+                     "intent":  "canal_atendimento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O atendimento simulado pode orientar por chat, telefone ou WhatsApp da loja. Para este projeto, a interacao pratica acontece pelo terminal.",
+                     "source_answer":  "Para falar com o atendimento da Claro via WhatsApp basta iniciar uma conversa com o número (11) 9999-10621."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  2,
+                                        "language":  "pt",
+                                        "domain_id":  5081521
+                                    },
+                     "id":  "mfaq_pt_canal_atendimento_5081521_2",
+                     "source_domain":  "take.net",
+                     "source_config":  "pt_flat",
+                     "question":  "Como funciona o WhatsApp comercial?",
+                     "tags":  [
+                                  "canal atendimento",
+                                  "atendimento whatsapp"
+                              ],
+                     "intent":  "canal_atendimento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O atendimento simulado pode orientar por chat, telefone ou WhatsApp da loja. Para este projeto, a interacao pratica acontece pelo terminal.",
+                     "source_answer":  "O WhatsApp comercial tem duas versões. A mais simples é chamada de WhatsApp Business App e permite que você baixe o aplicativo, insira um número em seu aparelho e atenda diretamente. A mais robusta é o WhatsApp Business API, que permite o atendimento por vários funcionários no mesmo número e a automação via chatbots."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  5,
+                                        "language":  "pt",
+                                        "domain_id":  15274945
+                                    },
+                     "id":  "mfaq_pt_canal_atendimento_15274945_5",
+                     "source_domain":  "liveagent.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "Que tipo de suporte o WhatsApp oferece?",
+                     "tags":  [
+                                  "canal atendimento",
+                                  "atendimento whatsapp"
+                              ],
+                     "intent":  "canal_atendimento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O atendimento simulado pode orientar por chat, telefone ou WhatsApp da loja. Para este projeto, a interacao pratica acontece pelo terminal.",
+                     "source_answer":  "O time de atendimento ao cliente do WhatsApp oferece os seguintes canais de suporte: chat, suporte em mídias sociais e suporte via autoatendimento."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  122,
+                                        "language":  "pt",
+                                        "domain_id":  17160009
+                                    },
+                     "id":  "mfaq_pt_canal_atendimento_17160009_122",
+                     "source_domain":  "azulseguros.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "Qual o número do atendimento telefônico de vocês?",
+                     "tags":  [
+                                  "canal atendimento",
+                                  "atendimento whatsapp"
+                              ],
+                     "intent":  "canal_atendimento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O atendimento simulado pode orientar por chat, telefone ou WhatsApp da loja. Para este projeto, a interacao pratica acontece pelo terminal.",
+                     "source_answer":  "Consulte nossos Canais de atendimento telefônico em Você também pode consultar informações sobre pagamentos e boletos em nosso WhatsApp."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  0,
+                                        "language":  "pt",
+                                        "domain_id":  3910776
+                                    },
+                     "id":  "mfaq_pt_canal_atendimento_3910776_0",
+                     "source_domain":  "melhorplano.net",
+                     "source_config":  "pt_flat",
+                     "question":  "☎️ Qual o telefone da Claro TV?",
+                     "tags":  [
+                                  "canal atendimento",
+                                  "atendimento whatsapp"
+                              ],
+                     "intent":  "canal_atendimento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O atendimento simulado pode orientar por chat, telefone ou WhatsApp da loja. Para este projeto, a interacao pratica acontece pelo terminal.",
+                     "source_answer":  "Os números da Claro TV são:0800 744 0397 para contratar Claro TV;106 99 ou 106 21 para atendimento Claro TV;1052 para falar com SAC Claro e Ouvidoria;(11) 99991-0621 para atendimento via WhatsApp."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  3,
+                                        "language":  "pt",
+                                        "domain_id":  5081521
+                                    },
+                     "id":  "mfaq_pt_canal_atendimento_5081521_3",
+                     "source_domain":  "take.net",
+                     "source_config":  "pt_flat",
+                     "question":  "Como ter mais de um atendente no WhatsApp Business?",
+                     "tags":  [
+                                  "canal atendimento",
+                                  "atendimento whatsapp"
+                              ],
+                     "intent":  "canal_atendimento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O atendimento simulado pode orientar por chat, telefone ou WhatsApp da loja. Para este projeto, a interacao pratica acontece pelo terminal.",
+                     "source_answer":  "Para ter mais de um atendente no WhatsApp Business, é necessário o uso da API do mensageiro. Com ela, é possível programar um sistema de atendimento feito por mais de um funcionário e também criar soluções automáticas com o uso de chatbots."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  1,
+                                        "language":  "pt",
+                                        "domain_id":  21336745
+                                    },
+                     "id":  "mfaq_pt_canal_atendimento_21336745_1",
+                     "source_domain":  "testapramim.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "Qual o SAC das Casas Bahia?",
+                     "tags":  [
+                                  "canal atendimento",
+                                  "atendimento whatsapp"
+                              ],
+                     "intent":  "canal_atendimento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O atendimento simulado pode orientar por chat, telefone ou WhatsApp da loja. Para este projeto, a interacao pratica acontece pelo terminal.",
+                     "source_answer":  "O atendimento das Casas Bahia é realizado de segunda a sexta, das 08h às 22h, e aos sábados das 08h às 20h, através do número 4003-4336 (loja online), 0800-200-4336 (RJ e região), 3003-8889 (loja física) e 4003-2773 (televendas). Também é realizado atendimento pelo WhatsApp através do número +55 11 99584-5527."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  9,
+                                        "language":  "pt",
+                                        "domain_id":  18579346
+                                    },
+                     "id":  "mfaq_pt_horario_atendimento_18579346_9",
+                     "source_domain":  "gndi.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "Qual o horário de atendimento on-line?",
+                     "tags":  [
+                                  "horario atendimento",
+                                  "horario atendimento loja"
+                              ],
+                     "intent":  "horario_atendimento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O horario simulado de atendimento e de segunda a sexta, das 8h as 18h, e aos sabados das 9h as 13h.",
+                     "source_answer":  "O serviço de Telemedicina do GNDI funciona de segunda a sábado, das 7h às 22h."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  1,
+                                        "language":  "pt",
+                                        "domain_id":  8316464
+                                    },
+                     "id":  "mfaq_pt_horario_atendimento_8316464_1",
+                     "source_domain":  "foregon.com",
+                     "source_config":  "pt_flat",
+                     "question":  "Como cancelar o cartão Carrefour?",
+                     "tags":  [
+                                  "horario atendimento",
+                                  "horario atendimento loja"
+                              ],
+                     "intent":  "horario_atendimento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O horario simulado de atendimento e de segunda a sexta, das 8h as 18h, e aos sabados das 9h as 13h.",
+                     "source_answer":  "O cancelamento do cartão Carrefour deve ser feito pelo titular na Central de Atendimento da rede de hipermercado, pelos números:4004 6200 (capitais e regiões metropolitanas);0800 709 6200 (demais localidades).O horário de atendimento é de segunda à sábado, das 8h às 21h, exceto feriados."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  1,
+                                        "language":  "pt",
+                                        "domain_id":  12589313
+                                    },
+                     "id":  "mfaq_pt_horario_atendimento_12589313_1",
+                     "source_domain":  "melhorplano.net",
+                     "source_config":  "pt_flat",
+                     "question":  "Qual a loja Oi mais próxima?",
+                     "tags":  [
+                                  "horario atendimento",
+                                  "horario atendimento loja"
+                              ],
+                     "intent":  "horario_atendimento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O horario simulado de atendimento e de segunda a sexta, das 8h as 18h, e aos sabados das 9h as 13h.",
+                     "source_answer":  "A Oi possui diversas lojas espalhadas pelo país. Você pode encontrar as lojas Oi da sua cidade nesse conteúdo. Caso sua cidade não tenha uma loja Oi é possível ir até um município vizinho ou receber atendimento Oi por outros canais de atendimento, como o minha Oi e 0800 Oi no número 0800 031 0749."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  2,
+                                        "language":  "pt",
+                                        "domain_id":  5638569
+                                    },
+                     "id":  "mfaq_pt_horario_atendimento_5638569_2",
+                     "source_domain":  "euamocupons.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "O atendimento Dafiti é bom?",
+                     "tags":  [
+                                  "horario atendimento",
+                                  "horario atendimento loja"
+                              ],
+                     "intent":  "horario_atendimento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O horario simulado de atendimento e de segunda a sexta, das 8h as 18h, e aos sabados das 9h as 13h.",
+                     "source_answer":  "A equipe de atendimento Dafiti, está preparada para te auxiliar em qualquer dúvida ou resolução que precisar.Uma loja 100% confiável e que visa sempre exaltar o melhor sentimento que um ser humano pode ter, a sensação de bem-estar, é assim que a Dafiti funciona."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  0,
+                                        "language":  "pt",
+                                        "domain_id":  14462664
+                                    },
+                     "id":  "mfaq_pt_horario_atendimento_14462664_0",
+                     "source_domain":  "combomultinet.com",
+                     "source_config":  "pt_flat",
+                     "question":  "Qual o horário de atendimento para falar com um atendente NET?",
+                     "tags":  [
+                                  "horario atendimento",
+                                  "horario atendimento loja"
+                              ],
+                     "intent":  "horario_atendimento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O horario simulado de atendimento e de segunda a sexta, das 8h as 18h, e aos sabados das 9h as 13h.",
+                     "source_answer":  "Para ligar para o NET Fone e falar com um de nossos atendentes, os horários são das 08:00 Às 21:30 de segunda à sexta e no sábado e feriados."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  2,
+                                        "language":  "pt",
+                                        "domain_id":  5285634
+                                    },
+                     "id":  "mfaq_pt_horario_atendimento_5285634_2",
+                     "source_domain":  "euamocupons.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "Posso contar com o atendimento Plie?",
+                     "tags":  [
+                                  "horario atendimento",
+                                  "horario atendimento loja"
+                              ],
+                     "intent":  "horario_atendimento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O horario simulado de atendimento e de segunda a sexta, das 8h as 18h, e aos sabados das 9h as 13h.",
+                     "source_answer":  "Pode contar com o atendimento Plie para o que der e vier. A loja é super segura e tem uma equipe de comunicação preparada para encontrar as melhores solução para você.Retire o cupom de desconto Plie e aproveite ao máximo todos os benefícios que estão inclusos nesse maravilhoso voucher."
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  0,
+                                        "language":  "pt",
+                                        "domain_id":  10662326
+                                    },
+                     "id":  "mfaq_pt_horario_atendimento_10662326_0",
+                     "source_domain":  "tudosobreprodutos.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "✅ Como posso entrar em contato com o Serviço de Atendimento ao Consumidor (SAC) e Suporte do produto \"Multifuncional Epson Tanque de Tinta L4160 - Wireless - C11cg23302\"?",
+                     "tags":  [
+                                  "horario atendimento",
+                                  "horario atendimento loja"
+                              ],
+                     "intent":  "horario_atendimento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O horario simulado de atendimento e de segunda a sexta, das 8h as 18h, e aos sabados das 9h as 13h.",
+                     "source_answer":  "(011) 4003 0376 0800 8800094, 0800 377 6627 ou Capitais e Regiões Metropolitanas: 3004-6627, 4003-0376 ou 0800 880 00 94, Capitais e Regiões Metropolitanas: 3004-6627 - Demais Localidades: 0800 3776627 / 0800-EPSONBR - Horário : Segunda a Sábado: 8h - 20h"
+                 },
+                 {
+                     "source_row":  {
+                                        "pair_id":  1,
+                                        "language":  "pt",
+                                        "domain_id":  12609003
+                                    },
+                     "id":  "mfaq_pt_horario_atendimento_12609003_1",
+                     "source_domain":  "euamocupons.com.br",
+                     "source_config":  "pt_flat",
+                     "question":  "O atendimento Renner estará disponível quando eu precisar?",
+                     "tags":  [
+                                  "horario atendimento",
+                                  "horario atendimento loja"
+                              ],
+                     "intent":  "horario_atendimento",
+                     "source_dataset":  "clips/mfaq",
+                     "answer":  "O horario simulado de atendimento e de segunda a sexta, das 8h as 18h, e aos sabados das 9h as 13h.",
+                     "source_answer":  "Sempre! A Renner detém uma equipe de atendimento que está sempre ao seu dispor, principalmente caso você precise realizar alguma devolução ou troca. Lembrando que a primeira é totalmente grátis. Através do cupom de desconto Renner, você irá conhecer uma loja totalmente preparada em receber suas solicitações e atender da melhor forma."
+                 }
+             ]
+}
